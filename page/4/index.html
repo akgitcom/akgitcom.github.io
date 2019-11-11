@@ -175,78 +175,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2016/10/18/Mac-brew-install-nginx-php-mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/10/18/Mac-brew-install-nginx-php-mysql/" class="post-title-link" itemprop="url">Mac brew install nginx php mysql</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2016-10-18 09:22:15 / Geändert am: 11:13:42" itemprop="dateCreated datePublished" datetime="2016-10-18T09:22:15+08:00">2016-10-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
-
-<p>#这个包有问题。没安装。</p>
-<blockquote>
-<p>homebrew/php/php70-imagick</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install homebrew/php/php70 homebrew/php/php70-amqp homebrew/php/php70-apcu homebrew/php/php70-apcu-bc homebrew/php/php70-event homebrew/php/php70-gearman homebrew/php/php70-geoip homebrew/php/php70-geos homebrew/php/php70-gmagick homebrew/php/php70-gmp homebrew/php/php70-intl homebrew/php/php70-mcrypt homebrew/php/php70-mongodb homebrew/php/php70-opcache homebrew/php/php70-pdo-dblib homebrew/php/php70-pdo-pgsql homebrew/php/php70-phalcon homebrew/php/php70-redis homebrew/php/php70-snmp homebrew/php/php70-swoole homebrew/php/php70-tidy homebrew/php/php70-uuid homebrew/php/php70-v8js homebrew/php/php70-xdebug homebrew/php/php70-xxtea homebrew/php/php70-yaf</span><br></pre></td></tr></table></figure>
-<p>#这几个包需要–HEAD</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Install with `brew install --HEAD homebrew/php/php70-igbinary`</span><br><span class="line">Install with `brew install --HEAD homebrew/php/php70-memcached`</span><br><span class="line">Install with `brew install --HEAD homebrew/php/php70-yaml`</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>PHP Warning:  PHP Startup: Unable to load dynamic library ‘/usr/local/opt/php70-gearman/gearman.so’ - dlopen(/usr/local/opt/php70-gearman/gearman.so, 9): image not found in Unknown on line 0</p>
-</blockquote>
-<p>类似错误解决方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install --build-from-source php70-gearman php70-geoip php70-gmagick php70-imagick php70-intl php70-mcrypt php70-mongodb php70-pdo-pgsql php70-redis php70-swoole php70-uuid</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2016/09/21/Openresty%E6%B7%BB%E5%8A%A0HTTP2-0%E6%94%AF%E6%8C%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -830,6 +758,81 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/09/06/Rails-4-Ckeditor-%E6%97%A0%E6%B3%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/09/06/Rails-4-Ckeditor-%E6%97%A0%E6%B3%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Rails 4 Ckeditor 无法初始化解决方法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-11-17 16:15:53" itemprop="dateModified" datetime="2015-11-17T16:15:53+08:00">2015-11-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>rails 4.2.1 后台使用的 ckeditor<br>发现用了turbolinks 无法初始化，第一次访问可以，第二次获取的body 就没办法初始化了，只能把ckeditor放到body里，每次重新加载。</p>
+</blockquote>
+<p>放到ckeditor 的js的上面</p>
+<h2 id="解决路径问题-Uncaught-TypeError-Cannot-set-property-‘dir’-of-undefined"><a href="#解决路径问题-Uncaught-TypeError-Cannot-set-property-‘dir’-of-undefined" class="headerlink" title="解决路径问题:Uncaught TypeError: Cannot set property ‘dir’ of undefined:"></a>解决路径问题:Uncaught TypeError: Cannot set property ‘dir’ of undefined:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CKEDITOR_BASEPATH = <span class="string">'/assets/ckeditor/'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决使用turbolinks后，ckeditor无法初始化的问题："><a href="#解决使用turbolinks后，ckeditor无法初始化的问题：" class="headerlink" title="解决使用turbolinks后，ckeditor无法初始化的问题："></a>解决使用turbolinks后，ckeditor无法初始化的问题：</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(document).bind(<span class="string">'page:change'</span>, function() &#123;</span><br><span class="line">    <span class="keyword">for</span>(key <span class="keyword">in</span> CKEDITOR.instances)</span><br><span class="line">    &#123;</span><br><span class="line">        console.log(key + <span class="string">':'</span> + CKEDITOR.instances[key]);</span><br><span class="line">        delete CKEDITOR.instances[key];</span><br><span class="line">    &#125;</span><br><span class="line">    $(<span class="string">'[data-toggle="tooltip"]'</span>).tooltip();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除 CKEDITOR.instances[key] 以后，ckeditor里面的图片浏览的按钮功能会失效。因为没有初始化成功，里面的config是null。这个方法并不完美，待高人解决。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -878,7 +881,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>

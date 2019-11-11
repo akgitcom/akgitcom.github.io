@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Clouds of may" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="link:http:&#x2F;&#x2F;joanswork.com&#x2F;devise-usage-tracking&#x2F;##Tracking Devise User Logins &amp;amp; Sign-ups I need to track the user activity being handled by the Devise gem. A set-up that’s lean, specific to Devise">
+<meta name="keywords" content="devise,logs,tracking,用户日志">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tracking Devise User Logins &amp; Sign-ups">
+<meta property="og:url" content="http:&#x2F;&#x2F;akgitcom.github.io&#x2F;2015&#x2F;01&#x2F;31&#x2F;Tracking-Devise-User-Logins-Sign-ups&#x2F;index.html">
+<meta property="og:site_name" content="Clouds of may">
+<meta property="og:description" content="link:http:&#x2F;&#x2F;joanswork.com&#x2F;devise-usage-tracking&#x2F;##Tracking Devise User Logins &amp;amp; Sign-ups I need to track the user activity being handled by the Devise gem. A set-up that’s lean, specific to Devise">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2015-09-02T04:51:07.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://akgitcom.github.io/2015/01/31/Tracking-Devise-User-Logins-Sign-ups/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Tracking Devise User Logins & Sign-ups | Clouds of may</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Clouds of may</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Clouds of may</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/31/Tracking-Devise-User-Logins-Sign-ups/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tracking Devise User Logins & Sign-ups
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2015-01-31 11:48:58" itemprop="dateCreated datePublished" datetime="2015-01-31T11:48:58+08:00">2015-01-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>link:<a href="http://joanswork.com/devise-usage-tracking/" target="_blank" rel="noopener">http://joanswork.com/devise-usage-tracking/</a><br>##Tracking Devise User Logins &amp; Sign-ups</p>
+<p>I need to track the user activity being handled by the <a href="https://github.com/plataformatec/devise" target="_blank" rel="noopener">Devise</a> gem. A set-up that’s lean, specific to Devise and easily limited to only logins for production. The following is what I came up with. The <a href="https://github.com/charlotte-ruby/impressionist" target="_blank" rel="noopener">impressionist</a> gem would have been an option but it’s a little much for my needs.</p>
+<p>I’m working with Rails 4.0.2 / Ruby 2.0.0 / Devise 3.2.2. The full source code can be found in <a href="https://github.com/jehughes/rails4-example" target="_blank" rel="noopener">jehughes/rails4-example</a>.</p>
+<p>##The first question is where to put the hooks into Devise?</p>
+<p><em>(In other words, is this possible without creating a mess?)</em></p>
+<p>I decided to use the ‘after’ action methods that are provided by Devise. The methods you override to redirect the user after they login, logout, etc.</p>
+<p>For example, in <strong>app/controllers/local_devise/registrations_controller.rb</strong> :</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">after_update_path_for</span><span class="params">(resource)</span></span></span><br><span class="line">  DeviseUsageLog.log(resource, DeviseAction::Edit)</span><br><span class="line">  root_url</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>We’ll define DeviseUsageLog and DeviseAction later.</p>
+<p>Here’s a list where the logging was added in the same way as the method above:</p>
+<table>
+<thead>
+<tr>
+<th>file</th>
+<th>method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><font color="green">applications_controller.rb</font></td>
+<td>after_sign_in_path_for</td>
+</tr>
+<tr>
+<td><font color="green">local_devise/unlocks_controller.rb</font></td>
+<td>after_unlock_path_for</td>
+</tr>
+<tr>
+<td><font color="green">local_devise/passwords_controller.rb</font></td>
+<td>after_resetting_password_path_for</td>
+</tr>
+<tr>
+<td><font color="green">local_devise/confirmations_controller.rb</font></td>
+<td>after_confirmation_path_for, after_confirmation_set_password_path_ for</td>
+</tr>
+<tr>
+<td><font color="green">local_devise/registrations_controller.rb</font></td>
+<td>after_inactive_sign_up_path_for, after_sign_up_path_for, after_- update_path_for</td>
+</tr>
+</tbody></table>
+<p>In addition, to log the deletion of a user account you’ll need to override the <em>destroy</em> method in <strong>local_devise/registrations_controller.rb</strong> :</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">destroy</span></span></span><br><span class="line">  DeviseUsageLog.log(resource, DeviseAction::Delete)</span><br><span class="line">  <span class="keyword">super</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>I’m not tracking user logouts but that would be <strong>after_sign_out_path_for</strong> in <strong>applications_controller.rb</strong>. (Probably. Haven’t tried it out.)</p>
+<p>##Use a DeviseActions enum to keep things tidy</p>
+<p>On my wish list was avoiding vague hardcoded strings like ‘edit’ or ‘new’ scattered throughout the source.</p>
+<p>I used the <a href="https://github.com/beerlington/classy_enum" target="_blank" rel="noopener">classy_enums gem</a> to enforce a list of valid action names.</p>
+<p>After installing the gem, use the generator to create the enum:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails g classy_enum DeviseAction new confirmed login password unlocked edit delete</span><br></pre></td></tr></table></figure>
+
+<p><em>(Yeah, probably overkill but it keeps things in the source and database tidy.)</em></p>
+<p>##Next create somewhere to log the data</p>
+<p><strong>Create the model</strong> DeviseUsageLog.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create_table <span class="string">"devise_usage_logs"</span>, <span class="symbol">force:</span> <span class="literal">true</span> <span class="keyword">do</span> <span class="params">|t|</span></span><br><span class="line">  t.integer  <span class="string">"user_id"</span>,    <span class="symbol">null:</span> <span class="literal">false</span></span><br><span class="line">  t.string   <span class="string">"user_ip"</span></span><br><span class="line">  t.string   <span class="string">"role"</span></span><br><span class="line">  t.datetime <span class="string">"created_at"</span></span><br><span class="line">  t.datetime <span class="string">"updated_at"</span></span><br><span class="line">  t.string   <span class="string">"username"</span></span><br><span class="line">  t.string   <span class="string">"action"</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>action</strong> is the DeviseAction enum. Make the connection between the model and enum by adding the following to <strong>model/devise_usage_log.rb</strong>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classy_enum_attr <span class="symbol">:action</span>, <span class="symbol">enum:</span> <span class="string">'DeviseAction'</span>, <span class="symbol">allow_nil:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>Allow <strong>action</strong> to be null since we don’t want potential problems to impact the user. This is the same reason the User and DeviseUsageLog models have not been connected through a ‘belongs_to’ and ‘has_many’. The tracking and logging should have as little impact as possible on the application.</p>
+<blockquote>
+<p><font color="red">Warning – this table that’s going to grow fast! Make sure to set-up a task to periodically archive and truncate.</font></p>
+</blockquote>
+<p>##Add the ability to control the level of tracking</p>
+<p>We need an application configuration variable that sets the amount of tracking being done. The options are <strong>:none</strong>, <strong>:all</strong> and <strong>:login</strong>. Not setting the variable is the same as <strong>:none</strong>.</p>
+<p>Add the following line in each of the three environment config files: development.rb, test.rb, production.rb.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># level of Devise usage tracking - :all, :login, :none (default)</span></span><br><span class="line">config.devise_usage_log_level = <span class="symbol">:all</span></span><br></pre></td></tr></table></figure>
+
+<p>##And finally – log the tracked data</p>
+<p>Write the [DeviseUsageLog.log] method we called in the Devise controllers.</p>
+<p>In <strong>model/devise_usage_log.rb</strong>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">self</span>.<span class="title">log</span><span class="params">(resource, new_action)</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">unless</span> User.valid_user?(resource) \</span><br><span class="line">                  &amp;&amp; (Rails.configuration.respond_to? <span class="symbol">:devise_usage_log_level</span>)</span><br><span class="line"></span><br><span class="line">    level = Rails.configuration.devise_usage_log_level</span><br><span class="line">    <span class="keyword">if</span> level == <span class="symbol">:all</span> <span class="params">||</span> (level == <span class="symbol">:login</span> &amp;&amp; new_action == DeviseAction::Login)</span><br><span class="line">      resource.log_devise_action(new_action)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>In <strong>model/user.rb</strong>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">self</span>.<span class="title">valid_user?</span><span class="params">(resource)</span></span></span><br><span class="line">    resource &amp;&amp; resource.kind_of?(User) &amp;&amp; resource.valid?</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">log_devise_action</span><span class="params">(new_action)</span></span></span><br><span class="line">    DeviseUsageLog.create!(<span class="symbol">user_id:</span> id, <span class="symbol">role:</span> role, <span class="symbol">user_ip:</span> current_sign_in_ip, <span class="symbol">username:</span> username, <span class="symbol">action:</span> new_action)</span><br><span class="line">  <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>##Tracking Reports</p>
+<p>The DeviseUsageLog model can now be used to list out the Devise activity anyway you want.</p>
+<p>One example, is the report I added to the Admin tab of <a href="https://github.com/jehughes/rails4-example" target="_blank" rel="noopener">jehughes/rails4-example</a>. The source can be found in the following places:</p>
+<p>Controller: <a href="https://github.com/jehughes/rails4-example/blob/master/app/controllers/devise_usage_log_controller.rb" target="_blank" rel="noopener">app/controllers/devise_usage_log_controller.rb</a><br>Model: <a href="https://github.com/jehughes/rails4-example/blob/master/app/models/devise_usage_log.rb" target="_blank" rel="noopener">app/models/devise_usage_log.rb</a><br>Views: <a href="https://github.com/jehughes/rails4-example/tree/master/app/views/devise_usage_log" target="_blank" rel="noopener">app/views/devise_usage_log</a></p>
+<p>Or a rake task like <a href="https://github.com/jehughes/rails4-example/blob/master/lib/tasks/devise_usage.rake" target="_blank" rel="noopener">lib/tasks/devise_usage.rake</a>.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/devise/" rel="tag"># devise</a>
+              <a href="/tags/logs/" rel="tag"># logs</a>
+              <a href="/tags/tracking/" rel="tag"># tracking</a>
+              <a href="/tags/%E7%94%A8%E6%88%B7%E6%97%A5%E5%BF%97/" rel="tag"># 用户日志</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2015/01/29/Ruby-on-Rails-%E7%BC%93%E5%AD%98%E6%8A%80%E6%9C%AF/" rel="next" title="Ruby on Rails 缓存技术">
+                  <i class="fa fa-chevron-left"></i> Ruby on Rails 缓存技术
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2015/09/06/Rails-4-unicorn-8080%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="prev" title="Rails 4 unicorn 8080 无法启动解决方法">
+                  Rails 4 unicorn 8080 无法启动解决方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">aksoft</p>
+  <div class="site-description" itemprop="description">我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">137</span>
+        <span class="site-state-item-name">schlagwörter</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aksoft</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

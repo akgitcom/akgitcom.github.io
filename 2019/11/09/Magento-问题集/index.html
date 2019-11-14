@@ -46,9 +46,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Kopieren',
-      copy_success: 'Kopiert',
-      copy_failure: 'Kopieren fehlgeschlagen'
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
     },
     sidebarPadding: 40
   };
@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="Clouds of may">
 <meta property="og:description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis 问题一：error 详细错误：“There has been an error processing your request. Exception printing is disabled by default for secur">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-09T08:58:36.793Z">
+<meta property="og:updated_time" content="2019-11-14T08:30:51.094Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://akgitcom.github.io/2019/11/09/Magento-%E9%97%AE%E9%A2%98%E9%9B%86/">
@@ -132,7 +132,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -146,22 +146,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -218,11 +218,17 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2019-11-09 16:41:30 / Geändert am: 16:58:36" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
+              <time title="Created: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-14 16:30:51" itemprop="dateModified" datetime="2019-11-14T16:30:51+08:00">2019-11-14</time>
+              </span>
 
           
 
@@ -240,7 +246,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Environment initialization</span><br><span class="line"> */</span><br><span class="line">error_reporting(E_ALL);</span><br><span class="line">ini_set(<span class="string">'display_errors'</span>, 1);</span><br><span class="line"><span class="variable">$_SERVER</span>[<span class="string">'MAGE_MODE'</span>] = <span class="string">'developer'</span>;</span><br></pre></td></tr></table></figure>
 
 <p>问题二：<br>setup 403 错误</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">location /setup &#123;</span><br><span class="line">    root <span class="variable">$MAGE_ROOT</span>;</span><br><span class="line">    location ~ ^/setup/index.php &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">### This fixes the problem:</span></span><br><span class="line">        fastcgi_split_path_info ^(.+?\.php)(/.*)$;</span><br><span class="line">        <span class="comment">################################</span></span><br><span class="line"></span><br><span class="line">        fastcgi_pass   fastcgi_backend;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^/setup/(?!pub/). &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^/setup/pub/ &#123;</span><br><span class="line">        add_header X-Frame-Options <span class="string">"SAMEORIGIN"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">location /setup &#123;</span><br><span class="line">    root <span class="variable">$MAGE_ROOT</span>;</span><br><span class="line">    location ~ ^/setup/index.php &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">### This fixes the problem:</span></span><br><span class="line">        fastcgi_split_path_info ^(.+?\.php)(/.*)$;</span><br><span class="line">        <span class="comment">################################</span></span><br><span class="line"></span><br><span class="line">        fastcgi_pass   fastcgi_backend;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^/setup/(?!pub/). &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^/setup/pub/ &#123;</span><br><span class="line">        add_header X-Frame-Options <span class="string">"SAMEORIGIN"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">问题三：</span><br><span class="line">In developer Magento mode Warning is shown on the Search Terms page:</span><br><span class="line">&gt;Warning: natcasesort() expects parameter 1 to be array, null given <span class="keyword">in</span> /var/www/html/deployer/instances/i-25245-2-3-develop/app/code/Magento/Search/Block/Term.php on line 102 [] []</span><br><span class="line">文件位置不同：/home/wwwroot/www.test.develop/vendor/magento/module-search/Block/Term.php</span><br><span class="line">```git</span><br><span class="line">+   <span class="variable">$termKeys</span> = [];</span><br><span class="line">    <span class="variable">$this</span>-&gt;_maxPopularity = reset(<span class="variable">$terms</span>)-&gt;getPopularity();</span><br><span class="line">    <span class="variable">$this</span>-&gt;_minPopularity = end(<span class="variable">$terms</span>)-&gt;getPopularity();</span><br><span class="line">    <span class="variable">$range</span> = <span class="variable">$this</span>-&gt;_maxPopularity - <span class="variable">$this</span>-&gt;_minPopularity;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -295,10 +301,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Overview
         </li>
       </ul>
 
@@ -320,14 +326,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">62</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">137</span>
-        <span class="site-state-item-name">schlagwörter</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -371,10 +377,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

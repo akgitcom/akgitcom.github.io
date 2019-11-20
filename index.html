@@ -290,7 +290,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-20 08:56:57" itemprop="dateModified" datetime="2019-11-20T08:56:57+08:00">2019-11-20</time>
+                <time title="Geändert am: 2019-11-20 09:32:19" itemprop="dateModified" datetime="2019-11-20T09:32:19+08:00">2019-11-20</time>
               </span>
 
           
@@ -326,6 +326,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php bin/magento module:<span class="built_in">disable</span> Magento_Amqp</span><br></pre></td></tr></table></figure>
 <p>If you want to use it, you might modify your app/etc/env.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">'cron_consumers_runner'</span> =&gt; [</span><br><span class="line">    <span class="string">'cron_run'</span> =&gt; <span class="keyword">false</span>,</span><br><span class="line">    <span class="string">'max_messages'</span> =&gt; <span class="number">1000</span>,</span><br><span class="line">    <span class="string">'consumers'</span> =&gt; [</span><br><span class="line">    <span class="string">'async.operations.all'</span>,</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line">]; <span class="comment">// return closing</span></span><br></pre></td></tr></table></figure>
+
+<p>问题五：<br>主题安装完后台缺少js文件,Magetique 2.2 主题</p>
+<blockquote>
+<p><a href="https://www.xxx.com/admin/filmslider/slider/" target="_blank" rel="noopener">https://www.xxx.com/admin/filmslider/slider/</a><br>查看 pub/staic 文件夹为空，重新生成pub/static文件夹中的CSS文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php bin/magento setup:static-content:deploy</span><br></pre></td></tr></table></figure>
       
     </div>
 

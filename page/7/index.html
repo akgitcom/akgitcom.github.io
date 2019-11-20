@@ -273,73 +273,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/11/thinkphp-%E8%8E%B7%E5%8F%96%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E8%9C%98%E8%9B%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/01/11/thinkphp-%E8%8E%B7%E5%8F%96%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E8%9C%98%E8%9B%9B/" class="post-title-link" itemprop="url">thinkphp 获取搜索引擎蜘蛛</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-
-              <time title="Erstellt: 2015-01-11 22:09:41" itemprop="dateCreated datePublished" datetime="2015-01-11T22:09:41+08:00">2015-01-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>###Function is_bot():</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">is_bot</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	$data[<span class="string">'robotspage'</span>] = $_SERVER[<span class="string">'REQUEST_URI'</span>] ? $_SERVER[<span class="string">'REQUEST_URI'</span>] : <span class="string">''</span>;</span><br><span class="line">	$data[<span class="string">'oldurl'</span>] = $_SERVER[<span class="string">'HTTP_REFERER'</span>] ? $_SERVER[<span class="string">'HTTP_REFERER'</span>] : <span class="string">'直接访问'</span>;</span><br><span class="line">	import(<span class="string">'ORG.Net.IpLocation'</span>); <span class="comment">// 导入IpLocation类</span></span><br><span class="line">	$Ip = <span class="keyword">new</span> IpLocation(<span class="string">'UTFWry.dat'</span>); <span class="comment">// 实例化类 参数表示IP地址库文件</span></span><br><span class="line">	$data[<span class="string">'robotsip'</span>] = get_client_ip();</span><br><span class="line">	$useragent = addslashes(strtolower($_SERVER[<span class="string">'HTTP_USER_AGENT'</span>]));</span><br><span class="line">	<span class="keyword">if</span> (strpos($useragent, <span class="string">'googlebot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Google'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'mediapartners-google'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Google Adsense'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'baiduspider'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Baidu'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sogou spider'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Sogou'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sogou web'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Sogou web'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sosospider'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'SOSO'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'yahoo'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Yahoo'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'msn'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'MSN'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'msnbot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'msnbot'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sohu'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Sohu'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'yodaoBot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Yodao'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'twiceler'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Twiceler'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'ia_archiver'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Alexa_'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'iaarchiver'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Alexa'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'slurp'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'雅虎'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'bot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'未知'</span>.$useragent;</span><br><span class="line">	&#125;</span><br><span class="line">	$data[<span class="string">'robotsname'</span>] = $bot;</span><br><span class="line">	$data[<span class="string">'robotsarea'</span>] = serialize($Ip-&gt;getlocation($data[<span class="string">'robotsip'</span>]));</span><br><span class="line">	$data[<span class="string">'create_time'</span>] = time();</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">isset</span>($bot)) <span class="comment">//如果是蜘蛛就存到数据库</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//$Jrobot-&gt;create();非表单无隐藏域,无法使用create()方法</span></span><br><span class="line">		$Jrobot = D(<span class="string">"Robot"</span>);</span><br><span class="line">		$lastInsId = $Jrobot-&gt;add($data);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/11/thinkphp-ip-%E9%BB%91%E5%90%8D%E5%8D%95-%E7%99%BD%E5%90%8D%E5%8D%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -394,6 +327,73 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/11/thinkphp-%E8%8E%B7%E5%8F%96%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E8%9C%98%E8%9B%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/01/11/thinkphp-%E8%8E%B7%E5%8F%96%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E8%9C%98%E8%9B%9B/" class="post-title-link" itemprop="url">thinkphp 获取搜索引擎蜘蛛</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2015-01-11 22:09:41" itemprop="dateCreated datePublished" datetime="2015-01-11T22:09:41+08:00">2015-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>###Function is_bot():</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">is_bot</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	$data[<span class="string">'robotspage'</span>] = $_SERVER[<span class="string">'REQUEST_URI'</span>] ? $_SERVER[<span class="string">'REQUEST_URI'</span>] : <span class="string">''</span>;</span><br><span class="line">	$data[<span class="string">'oldurl'</span>] = $_SERVER[<span class="string">'HTTP_REFERER'</span>] ? $_SERVER[<span class="string">'HTTP_REFERER'</span>] : <span class="string">'直接访问'</span>;</span><br><span class="line">	import(<span class="string">'ORG.Net.IpLocation'</span>); <span class="comment">// 导入IpLocation类</span></span><br><span class="line">	$Ip = <span class="keyword">new</span> IpLocation(<span class="string">'UTFWry.dat'</span>); <span class="comment">// 实例化类 参数表示IP地址库文件</span></span><br><span class="line">	$data[<span class="string">'robotsip'</span>] = get_client_ip();</span><br><span class="line">	$useragent = addslashes(strtolower($_SERVER[<span class="string">'HTTP_USER_AGENT'</span>]));</span><br><span class="line">	<span class="keyword">if</span> (strpos($useragent, <span class="string">'googlebot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Google'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'mediapartners-google'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Google Adsense'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'baiduspider'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Baidu'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sogou spider'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Sogou'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sogou web'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Sogou web'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sosospider'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'SOSO'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'yahoo'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Yahoo'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'msn'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'MSN'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'msnbot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'msnbot'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'sohu'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Sohu'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'yodaoBot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Yodao'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'twiceler'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Twiceler'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'ia_archiver'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Alexa_'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'iaarchiver'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'Alexa'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'slurp'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'雅虎'</span>;</span><br><span class="line">	&#125; <span class="keyword">elseif</span> (strpos($useragent, <span class="string">'bot'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">	$bot = <span class="string">'未知'</span>.$useragent;</span><br><span class="line">	&#125;</span><br><span class="line">	$data[<span class="string">'robotsname'</span>] = $bot;</span><br><span class="line">	$data[<span class="string">'robotsarea'</span>] = serialize($Ip-&gt;getlocation($data[<span class="string">'robotsip'</span>]));</span><br><span class="line">	$data[<span class="string">'create_time'</span>] = time();</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">isset</span>($bot)) <span class="comment">//如果是蜘蛛就存到数据库</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//$Jrobot-&gt;create();非表单无隐藏域,无法使用create()方法</span></span><br><span class="line">		$Jrobot = D(<span class="string">"Robot"</span>);</span><br><span class="line">		$lastInsId = $Jrobot-&gt;add($data);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 

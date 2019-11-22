@@ -227,7 +227,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-22 09:14:46" itemprop="dateModified" datetime="2019-11-22T09:14:46+08:00">2019-11-22</time>
+                <time title="Geändert am: 2019-11-22 10:15:25" itemprop="dateModified" datetime="2019-11-22T10:15:25+08:00">2019-11-22</time>
               </span>
 
           
@@ -241,7 +241,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1、logo、title、keywords、description 设置</p>
+          <p>Install：<br>php bin/magento setup:upgrade<br>php bin/magento index:reindex<br>php bin/magento cache:clean<br>php bin/magento setup:di:compile</p>
+<p>1、logo、title、keywords、description 设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stores-&gt;Configuration-&gt;Templatemonster-&gt;Theme Option-&gt;General</span><br></pre></td></tr></table></figure>
 <p>2、shop by brand 设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stores-&gt;Configuration-&gt;Templatemonster-&gt;Shop by Brand</span><br></pre></td></tr></table></figure>
@@ -250,6 +251,11 @@
 <p>4、导航栏样式bug，(二级导航没有padding)：</p>
 <blockquote>
 <p>需要开启 stores-&gt;templatemonster-&gt;megamenu-&gt;megamenu conifg-&gt;enable/disable-&gt;enable</p>
+</blockquote>
+<p>5、magento 2.3.3 templatemonster-&gt;sliders-&gt;上传图片bug：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/vendor/magento/framework/App/Filesystem/Directory Resolver.php:<span class="number">56</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>#需要先上传一张产品图片可以解决此bug</p>
 </blockquote>
 
       
@@ -301,7 +307,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-20 09:32:19" itemprop="dateModified" datetime="2019-11-20T09:32:19+08:00">2019-11-20</time>
+                <time title="Geändert am: 2019-11-22 09:30:27" itemprop="dateModified" datetime="2019-11-22T09:30:27+08:00">2019-11-22</time>
               </span>
 
           
@@ -316,6 +322,7 @@
 
       
           <p>magento 2.3.2 + theme<br>lnmp 1.6<br>centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis</p>
+<p>nexcess 权限：<br>文件权限：find code -type f -exec chmod 0600 {} ;<br>文件夹权限：find code -type d -exec chmod 0711 {} ;</p>
 <p>问题一：<br>error 详细错误：<br>“There has been an error processing your request. Exception printing is disabled by default for security reasons.”<br>修改#app/bootstrap.php#</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Environment initialization</span><br><span class="line"> */</span><br><span class="line">error_reporting(E_ALL);</span><br><span class="line">ini_set(<span class="string">'display_errors'</span>, 1);</span><br><span class="line"><span class="variable">$_SERVER</span>[<span class="string">'MAGE_MODE'</span>] = <span class="string">'developer'</span>;</span><br></pre></td></tr></table></figure>
 

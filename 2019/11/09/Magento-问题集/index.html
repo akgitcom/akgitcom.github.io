@@ -54,15 +54,15 @@
   };
 </script>
 
-  <meta name="description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis 问题一：error 详细错误：“There has been an error processing your request. Exception printing is disabled by default for secur">
-<meta name="keywords" content="magento,403,nginx">
+  <meta name="description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 问题一：error 详细错误：">
+<meta name="keywords" content="nginx,magento,403">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Magento 问题集">
 <meta property="og:url" content="http:&#x2F;&#x2F;akgitcom.github.io&#x2F;2019&#x2F;11&#x2F;09&#x2F;Magento-%E9%97%AE%E9%A2%98%E9%9B%86&#x2F;index.html">
 <meta property="og:site_name" content="Clouds of may">
-<meta property="og:description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis 问题一：error 详细错误：“There has been an error processing your request. Exception printing is disabled by default for secur">
+<meta property="og:description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 问题一：error 详细错误：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-20T01:32:19.488Z">
+<meta property="og:updated_time" content="2019-11-22T01:30:27.862Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://akgitcom.github.io/2019/11/09/Magento-%E9%97%AE%E9%A2%98%E9%9B%86/">
@@ -227,7 +227,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-20 09:32:19" itemprop="dateModified" datetime="2019-11-20T09:32:19+08:00">2019-11-20</time>
+                <time title="Geändert am: 2019-11-22 09:30:27" itemprop="dateModified" datetime="2019-11-22T09:30:27+08:00">2019-11-22</time>
               </span>
 
           
@@ -242,6 +242,7 @@
 
       
         <p>magento 2.3.2 + theme<br>lnmp 1.6<br>centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis</p>
+<p>nexcess 权限：<br>文件权限：find code -type f -exec chmod 0600 {} ;<br>文件夹权限：find code -type d -exec chmod 0711 {} ;</p>
 <p>问题一：<br>error 详细错误：<br>“There has been an error processing your request. Exception printing is disabled by default for security reasons.”<br>修改#app/bootstrap.php#</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Environment initialization</span><br><span class="line"> */</span><br><span class="line">error_reporting(E_ALL);</span><br><span class="line">ini_set(<span class="string">'display_errors'</span>, 1);</span><br><span class="line"><span class="variable">$_SERVER</span>[<span class="string">'MAGE_MODE'</span>] = <span class="string">'developer'</span>;</span><br></pre></td></tr></table></figure>
 
@@ -277,9 +278,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
               <a href="/tags/magento/" rel="tag"># magento</a>
               <a href="/tags/403/" rel="tag"># 403</a>
-              <a href="/tags/nginx/" rel="tag"># nginx</a>
           </div>
 
         

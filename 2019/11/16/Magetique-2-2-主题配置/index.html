@@ -54,15 +54,15 @@
   };
 </script>
 
-  <meta name="description" content="1、logo、title、keywords、description 设置 1Stores-&amp;gt;Configuration-&amp;gt;Templatemonster-&amp;gt;Theme Option-&amp;gt;General 2、shop by brand 设置 1Stores-&amp;gt;Configuration-&amp;gt;Templatemonster-&amp;gt;Shop by Brand 3、产品地">
+  <meta name="description" content="Install：php bin&#x2F;magento setup:upgradephp bin&#x2F;magento index:reindexphp bin&#x2F;magento cache:cleanphp bin&#x2F;magento setup:di:compile 1、logo、title、keywords、description 设置 1Stores-&amp;gt;Configuration-&amp;gt;Templat">
 <meta name="keywords" content="Magetique,theme,config,配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Magetique 2.2 主题配置">
 <meta property="og:url" content="http:&#x2F;&#x2F;akgitcom.github.io&#x2F;2019&#x2F;11&#x2F;16&#x2F;Magetique-2-2-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="Clouds of may">
-<meta property="og:description" content="1、logo、title、keywords、description 设置 1Stores-&amp;gt;Configuration-&amp;gt;Templatemonster-&amp;gt;Theme Option-&amp;gt;General 2、shop by brand 设置 1Stores-&amp;gt;Configuration-&amp;gt;Templatemonster-&amp;gt;Shop by Brand 3、产品地">
+<meta property="og:description" content="Install：php bin&#x2F;magento setup:upgradephp bin&#x2F;magento index:reindexphp bin&#x2F;magento cache:cleanphp bin&#x2F;magento setup:di:compile 1、logo、title、keywords、description 设置 1Stores-&amp;gt;Configuration-&amp;gt;Templat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-22T01:14:46.834Z">
+<meta property="og:updated_time" content="2019-11-22T02:15:25.903Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://akgitcom.github.io/2019/11/16/Magetique-2-2-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">
@@ -227,7 +227,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-22 09:14:46" itemprop="dateModified" datetime="2019-11-22T09:14:46+08:00">2019-11-22</time>
+                <time title="Geändert am: 2019-11-22 10:15:25" itemprop="dateModified" datetime="2019-11-22T10:15:25+08:00">2019-11-22</time>
               </span>
 
           
@@ -241,7 +241,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1、logo、title、keywords、description 设置</p>
+        <p>Install：<br>php bin/magento setup:upgrade<br>php bin/magento index:reindex<br>php bin/magento cache:clean<br>php bin/magento setup:di:compile</p>
+<p>1、logo、title、keywords、description 设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stores-&gt;Configuration-&gt;Templatemonster-&gt;Theme Option-&gt;General</span><br></pre></td></tr></table></figure>
 <p>2、shop by brand 设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stores-&gt;Configuration-&gt;Templatemonster-&gt;Shop by Brand</span><br></pre></td></tr></table></figure>
@@ -250,6 +251,11 @@
 <p>4、导航栏样式bug，(二级导航没有padding)：</p>
 <blockquote>
 <p>需要开启 stores-&gt;templatemonster-&gt;megamenu-&gt;megamenu conifg-&gt;enable/disable-&gt;enable</p>
+</blockquote>
+<p>5、magento 2.3.3 templatemonster-&gt;sliders-&gt;上传图片bug：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/vendor/magento/framework/App/Filesystem/Directory Resolver.php:<span class="number">56</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>#需要先上传一张产品图片可以解决此bug</p>
 </blockquote>
 
     </div>

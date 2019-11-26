@@ -46,9 +46,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
     },
     sidebarPadding: 40
   };
@@ -131,7 +131,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -145,22 +145,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -218,16 +218,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2019-11-16 14:21:13" itemprop="dateCreated datePublished" datetime="2019-11-16T14:21:13+08:00">2019-11-16</time>
+              <time title="Erstellt: 2019-11-16 14:21:13" itemprop="dateCreated datePublished" datetime="2019-11-16T14:21:13+08:00">2019-11-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-22 14:03:01" itemprop="dateModified" datetime="2019-11-22T14:03:01+08:00">2019-11-22</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-11-23 14:08:32" itemprop="dateModified" datetime="2019-11-23T14:08:32+08:00">2019-11-23</time>
               </span>
 
           
@@ -242,7 +242,7 @@
 
       
           <p>Install：<br>php bin/magento setup:upgrade<br>php bin/magento index:reindex<br>php bin/magento cache:clean<br>php bin/magento setup:di:compile</p>
-<p>0、#parallax 上传图片文件名不能带有中文#</p>
+<p>0、#parallax 上传图片文件名不能带有中文#,如果不小心上传了带有中文的，直接操作数据库，清空parallax_block、、parallax_block_item、parallax_block_store 的三个表的数据。重新登陆后台。</p>
 <p>1、logo、title、keywords、description 设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stores-&gt;Configuration-&gt;Templatemonster-&gt;Theme Option-&gt;General</span><br></pre></td></tr></table></figure>
 <p>2、shop by brand 设置</p>
@@ -258,7 +258,9 @@
 <blockquote>
 <p>#需要先上传一张产品图片可以解决此bug</p>
 </blockquote>
-
+<p>6、footer 图标代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-icon"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"https://www.facebook.com/jmlgogo"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-facebook"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"https://twitter.com/jmlgogo"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-twitter"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"https://www.instagram.com/jmlgogoo/"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-instagram"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"https://www.youtube.com/channel/UCa1rPny7EUJGgVx6MEc7oog"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-pinterest"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-footer"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cc-visa"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cc-mastercard"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cc-paypal"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cc-discover"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-cc-stripe"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -299,16 +301,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
+              <time title="Erstellt: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-22 09:30:27" itemprop="dateModified" datetime="2019-11-22T09:30:27+08:00">2019-11-22</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-11-26 10:33:37" itemprop="dateModified" datetime="2019-11-26T10:33:37+08:00">2019-11-26</time>
               </span>
 
           
@@ -351,6 +353,17 @@
 <p><a href="https://www.xxx.com/admin/filmslider/slider/" target="_blank" rel="noopener">https://www.xxx.com/admin/filmslider/slider/</a><br>查看 pub/staic 文件夹为空，重新生成pub/static文件夹中的CSS文件</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php bin/magento setup:static-content:deploy</span><br></pre></td></tr></table></figure>
+
+<p>问题六：<br>添加自定义js<br>在Magento 2添加自定义JS文件的步骤：<br>创建文件 /app/design/frontend/TemplateMonster/theme007/Magento_Theme/web/js/main.js,主题目录</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define([</span><br><span class="line">    <span class="string">'jquery'</span>,</span><br><span class="line">], <span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"Page loaded."</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>修改文件  /home/wwwroot/<a href="http://www.test.develop/app/design/frontend/TemplateMonster/theme007/Magento_Theme/requirejs-config.js：" target="_blank" rel="noopener">www.test.develop/app/design/frontend/TemplateMonster/theme007/Magento_Theme/requirejs-config.js：</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="string">"main"</span>: <span class="string">'js/main'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    shim: &#123;</span><br><span class="line">        <span class="string">'main'</span>: [<span class="string">'jquery'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>控制台清空缓存，清空浏览器缓存。</p>
+</blockquote>
+<p>执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php bin/magento cache:clean &amp;&amp; php bin/magento cache:flush</span><br><span class="line">php bin/magento cache:clean</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -391,10 +404,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2019-03-02 16:24:52 / Modified: 17:05:02" itemprop="dateCreated datePublished" datetime="2019-03-02T16:24:52+08:00">2019-03-02</time>
+              <time title="Erstellt: 2019-03-02 16:24:52 / Geändert am: 17:05:02" itemprop="dateCreated datePublished" datetime="2019-03-02T16:24:52+08:00">2019-03-02</time>
             </span>
 
           
@@ -453,10 +466,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2018-09-20 08:51:18 / Modified: 08:54:36" itemprop="dateCreated datePublished" datetime="2018-09-20T08:51:18+08:00">2018-09-20</time>
+              <time title="Erstellt: 2018-09-20 08:51:18 / Geändert am: 08:54:36" itemprop="dateCreated datePublished" datetime="2018-09-20T08:51:18+08:00">2018-09-20</time>
             </span>
 
           
@@ -476,7 +489,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/20/%E5%8F%96%E7%BB%8F%E5%90%8E-%E5%AD%99%E6%82%9F%E7%A9%BA%E6%88%90%E4%BA%86%E6%96%97%E6%88%98%E8%83%9C%E4%BD%9B-%E9%82%A3%E7%8C%B4%E5%AD%90%E7%8C%B4%E5%AD%99%E5%91%A2%EF%BC%9F/#more" rel="contents">
-                Read more &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -521,10 +534,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2018-09-15 11:06:42 / Modified: 11:18:00" itemprop="dateCreated datePublished" datetime="2018-09-15T11:06:42+08:00">2018-09-15</time>
+              <time title="Erstellt: 2018-09-15 11:06:42 / Geändert am: 11:18:00" itemprop="dateCreated datePublished" datetime="2018-09-15T11:06:42+08:00">2018-09-15</time>
             </span>
 
           
@@ -546,7 +559,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/15/%E5%AD%99%E6%82%9F%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%89%BE%E5%A6%82%E6%9D%A5%E6%8A%A5%E4%BB%87%EF%BC%9F/#more" rel="contents">
-                Read more &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -591,16 +604,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2018-09-15 10:51:16" itemprop="dateCreated datePublished" datetime="2018-09-15T10:51:16+08:00">2018-09-15</time>
+              <time title="Erstellt: 2018-09-15 10:51:16" itemprop="dateCreated datePublished" datetime="2018-09-15T10:51:16+08:00">2018-09-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-09-20 08:55:15" itemprop="dateModified" datetime="2018-09-20T08:55:15+08:00">2018-09-20</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2018-09-20 08:55:15" itemprop="dateModified" datetime="2018-09-20T08:55:15+08:00">2018-09-20</time>
               </span>
 
           
@@ -620,7 +633,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/15/%E5%A6%82%E6%9E%9C%E4%BC%B4%E5%94%90%E5%83%A7%E5%8F%96%E7%BB%8F%E7%9A%84%E4%B8%89%E5%BE%92%E5%BC%9F%E6%98%AF%E6%9D%A8%E6%88%AC-%E5%AD%99%E6%82%9F%E7%A9%BA-%E7%89%9B%E9%AD%94/#more" rel="contents">
-                Read more &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -665,16 +678,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2018-04-23 15:35:13" itemprop="dateCreated datePublished" datetime="2018-04-23T15:35:13+08:00">2018-04-23</time>
+              <time title="Erstellt: 2018-04-23 15:35:13" itemprop="dateCreated datePublished" datetime="2018-04-23T15:35:13+08:00">2018-04-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-09-19 17:06:06" itemprop="dateModified" datetime="2018-09-19T17:06:06+08:00">2018-09-19</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2018-09-19 17:06:06" itemprop="dateModified" datetime="2018-09-19T17:06:06+08:00">2018-09-19</time>
               </span>
 
           
@@ -693,7 +706,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/04/23/%E9%A9%AC%E9%9D%A2/#more" rel="contents">
-                Read more &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -738,10 +751,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2018-01-23 17:21:47 / Modified: 17:23:48" itemprop="dateCreated datePublished" datetime="2018-01-23T17:21:47+08:00">2018-01-23</time>
+              <time title="Erstellt: 2018-01-23 17:21:47 / Geändert am: 17:23:48" itemprop="dateCreated datePublished" datetime="2018-01-23T17:21:47+08:00">2018-01-23</time>
             </span>
 
           
@@ -800,16 +813,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2018-01-19 13:19:31" itemprop="dateCreated datePublished" datetime="2018-01-19T13:19:31+08:00">2018-01-19</time>
+              <time title="Erstellt: 2018-01-19 13:19:31" itemprop="dateCreated datePublished" datetime="2018-01-19T13:19:31+08:00">2018-01-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-04-23 16:01:01" itemprop="dateModified" datetime="2018-04-23T16:01:01+08:00">2018-04-23</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2018-04-23 16:01:01" itemprop="dateModified" datetime="2018-04-23T16:01:01+08:00">2018-04-23</time>
               </span>
 
           
@@ -872,10 +885,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2017-12-14 09:01:22 / Modified: 09:05:44" itemprop="dateCreated datePublished" datetime="2017-12-14T09:01:22+08:00">2017-12-14</time>
+              <time title="Erstellt: 2017-12-14 09:01:22 / Geändert am: 09:05:44" itemprop="dateCreated datePublished" datetime="2017-12-14T09:01:22+08:00">2017-12-14</time>
             </span>
 
           
@@ -913,7 +926,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -935,10 +948,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          Übersicht
         </li>
       </ul>
 
@@ -960,14 +973,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">141</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
 </div>
@@ -1011,10 +1024,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

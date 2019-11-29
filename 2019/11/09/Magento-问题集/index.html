@@ -46,9 +46,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Kopieren',
-      copy_success: 'Kopiert',
-      copy_failure: 'Kopieren fehlgeschlagen'
+      copy_button: 'Copiar',
+      copy_success: 'Copiado',
+      copy_failure: 'Copiar falló'
     },
     sidebarPadding: 40
   };
@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="Clouds of may">
 <meta property="og:description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 常用命令：php bin&#x2F;ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-28T05:57:09.399Z">
+<meta property="og:updated_time" content="2019-11-29T07:55:54.070Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://akgitcom.github.io/2019/11/09/Magento-%E9%97%AE%E9%A2%98%E9%9B%86/">
@@ -132,7 +132,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Cambiar a barra de navegación">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -146,22 +146,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Inicio</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Sobre mi</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Etiquetas</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archivo</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -218,16 +218,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
+              <time title="Creado por: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-28 13:57:09" itemprop="dateModified" datetime="2019-11-28T13:57:09+08:00">2019-11-28</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2019-11-29 15:55:54" itemprop="dateModified" datetime="2019-11-29T15:55:54+08:00">2019-11-29</time>
               </span>
 
           
@@ -242,23 +242,22 @@
 
       
         <p>magento 2.3.2 + theme<br>lnmp 1.6<br>centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis</p>
-<p>nexcess 权限：<br>文件权限：find code -type f -exec chmod 0600 {} ;<br>文件夹权限：find code -type d -exec chmod 0711 {} ;</p>
-<p>常用命令：<br>php bin/magento indexer:reindex  重建缓存<br>php bin/magento cache:clean &amp;&amp; php bin/magento cache:flush 清除缓存<br>php bin/magento setup:static-content:deploy -f 编译资源<br>bin/magento deploy:mode:show 查看当前运行模式<br>bin/magento deploy:mode:set {mode} [-s|–skip-compilation] 设置运行模式<br>bin/magento deploy:mode:set default<br>bin/magento deploy:mode:set developer<br>bin/magento deploy:mode:set production</p>
-<p>问题一：<br>error 详细错误：<br>“There has been an error processing your request. Exception printing is disabled by default for security reasons.”<br>修改#app/bootstrap.php#</p>
+<h3 id="nexcess-权限："><a href="#nexcess-权限：" class="headerlink" title="nexcess 权限："></a>nexcess 权限：</h3><p>文件权限：find code -type f -exec chmod 0600 {} ;<br>文件夹权限：find code -type d -exec chmod 0711 {} ;</p>
+<h3 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h3><p>php bin/magento indexer:reindex  重建缓存<br>php bin/magento cache:clean &amp;&amp; php bin/magento cache:flush 清除缓存<br>php bin/magento setup:static-content:deploy -f 编译资源<br>bin/magento deploy:mode:show 查看当前运行模式<br>bin/magento deploy:mode:set {mode} [-s|–skip-compilation] 设置运行模式<br>bin/magento deploy:mode:set default<br>bin/magento deploy:mode:set developer<br>bin/magento deploy:mode:set production</p>
+<h3 id="问题一："><a href="#问题一：" class="headerlink" title="问题一："></a>问题一：</h3><p>error 详细错误：<br>“There has been an error processing your request. Exception printing is disabled by default for security reasons.”<br>修改#app/bootstrap.php#</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Environment initialization</span><br><span class="line"> */</span><br><span class="line">error_reporting(E_ALL);</span><br><span class="line">ini_set(<span class="string">'display_errors'</span>, 1);</span><br><span class="line"><span class="variable">$_SERVER</span>[<span class="string">'MAGE_MODE'</span>] = <span class="string">'developer'</span>;</span><br></pre></td></tr></table></figure>
 
-<p>问题二：<br>setup 403 错误</p>
+<h3 id="问题二："><a href="#问题二：" class="headerlink" title="问题二："></a>问题二：</h3><p>setup 403 错误</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">location /setup &#123;</span><br><span class="line">    root <span class="variable">$MAGE_ROOT</span>;</span><br><span class="line">    location ~ ^/setup/index.php &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">### This fixes the problem:</span></span><br><span class="line">        fastcgi_split_path_info ^(.+?\.php)(/.*)$;</span><br><span class="line">        <span class="comment">################################</span></span><br><span class="line"></span><br><span class="line">        fastcgi_pass   fastcgi_backend;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^/setup/(?!pub/). &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^/setup/pub/ &#123;</span><br><span class="line">        add_header X-Frame-Options <span class="string">"SAMEORIGIN"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>问题三：<br>In developer Magento mode Warning is shown on the Search Terms page:</p>
+<h3 id="问题三："><a href="#问题三：" class="headerlink" title="问题三："></a>问题三：</h3><p>In developer Magento mode Warning is shown on the Search Terms page:</p>
 <blockquote>
 <p>Warning: natcasesort() expects parameter 1 to be array, null given in /var/www/html/deployer/instances/i-25245-2-3-develop/app/code/Magento/Search/Block/Term.php on line 102 [] []</p>
 </blockquote>
 <p>文件位置不同：/home/wwwroot/<a href="http://www.test.develop/vendor/magento/module-search/Block/Term.php" target="_blank" rel="noopener">www.test.develop/vendor/magento/module-search/Block/Term.php</a></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+   $termKeys = []; <span class="comment">//add</span></span><br><span class="line">    <span class="keyword">$this</span>-&gt;_maxPopularity = reset($terms)-&gt;getPopularity();</span><br><span class="line">    <span class="keyword">$this</span>-&gt;_minPopularity = end($terms)-&gt;getPopularity();</span><br><span class="line">    $range = <span class="keyword">$this</span>-&gt;_maxPopularity - <span class="keyword">$this</span>-&gt;_minPopularity;</span><br></pre></td></tr></table></figure>
 
-<p>问题四：</p>
-<blockquote>
+<h3 id="问题四："><a href="#问题四：" class="headerlink" title="问题四："></a>问题四：</h3><blockquote>
 <p>Consumer “async.operations.all” skipped as required connection “amqp” is not configured. Unknown connection name amqp</p>
 </blockquote>
 <p>If you don’t want to use the Magento Message Queues, you can just disable it.</p>
@@ -266,13 +265,13 @@
 <p>If you want to use it, you might modify your app/etc/env.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">'cron_consumers_runner'</span> =&gt; [</span><br><span class="line">    <span class="string">'cron_run'</span> =&gt; <span class="keyword">false</span>,</span><br><span class="line">    <span class="string">'max_messages'</span> =&gt; <span class="number">1000</span>,</span><br><span class="line">    <span class="string">'consumers'</span> =&gt; [</span><br><span class="line">    <span class="string">'async.operations.all'</span>,</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line">]; <span class="comment">// return closing</span></span><br></pre></td></tr></table></figure>
 
-<p>问题五：<br>主题安装完后台缺少js文件,Magetique 2.2 主题</p>
+<h3 id="问题五："><a href="#问题五：" class="headerlink" title="问题五："></a>问题五：</h3><p>主题安装完后台缺少js文件,Magetique 2.2 主题</p>
 <blockquote>
 <p><a href="https://www.xxx.com/admin/filmslider/slider/" target="_blank" rel="noopener">https://www.xxx.com/admin/filmslider/slider/</a><br>查看 pub/staic 文件夹为空，重新生成pub/static文件夹中的CSS文件</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php bin/magento setup:static-content:deploy</span><br></pre></td></tr></table></figure>
 
-<p>问题六：<br>添加自定义js<br>在Magento 2添加自定义JS文件的步骤：<br>创建文件 /app/design/frontend/TemplateMonster/theme007/Magento_Theme/web/js/main.js,主题目录</p>
+<h3 id="问题六："><a href="#问题六：" class="headerlink" title="问题六："></a>问题六：</h3><p>添加自定义js<br>在Magento 2添加自定义JS文件的步骤：<br>创建文件 /app/design/frontend/TemplateMonster/theme007/Magento_Theme/web/js/main.js,主题目录</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define([</span><br><span class="line">    <span class="string">'jquery'</span>,</span><br><span class="line">    <span class="string">"jquery.countdown"</span></span><br><span class="line">], <span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"Page loaded."</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>修改文件  /home/wwwroot/<a href="http://www.test.develop/app/design/frontend/TemplateMonster/theme007/Magento_Theme/requirejs-config.js：" target="_blank" rel="noopener">www.test.develop/app/design/frontend/TemplateMonster/theme007/Magento_Theme/requirejs-config.js：</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="string">"main"</span>: <span class="string">'js/main'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    shim: &#123;</span><br><span class="line">        <span class="string">'main'</span>: [<span class="string">'jquery'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -285,7 +284,14 @@
 <p>#本地安装2.3.2+theme 没有问题。在服务器 2.3.3 + theme 出现requirejs-config.js 已经包含自定义js文件并编译成功，但是没加载自定js文件。直接在theme.js文件添加js…<br>#解决方法：直接在theme自带的theme.js文件添加js…</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom js start</span></span><br><span class="line"><span class="comment">// alert("page loaded!");</span></span><br><span class="line"><span class="keyword">var</span> $date = $(<span class="string">"#clock"</span>).html();</span><br><span class="line"><span class="keyword">var</span> $current = <span class="keyword">new</span> <span class="built_in">Date</span>().;</span><br><span class="line"><span class="keyword">var</span> $old = <span class="keyword">new</span> <span class="built_in">Date</span>($date);</span><br><span class="line"><span class="keyword">if</span>($currentd1.getTime()&gt;$old.getTime())&#123;</span><br><span class="line">    $(<span class="string">'#clock'</span>).countdown($date, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).html(event.strftime(<span class="string">'%D days %H:%M:%S'</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    $(<span class="string">"#clock"</span>).css(<span class="string">"display"</span>,<span class="string">"none"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// custom js end</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="问题七："><a href="#问题七：" class="headerlink" title="问题七："></a>问题七：</h3><p>产品比较 magento 2.3.3 点击compare不显示对比内容,bug 为处理，删除该功能</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- remove 20191129 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">referenceBlock</span> <span class="attr">name</span>=<span class="string">"catalog.compare.sidebar"</span> <span class="attr">remove</span>=<span class="string">"true"</span>/&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">referenceBlock</span> <span class="attr">name</span>=<span class="string">"wishlist_sidebar"</span> <span class="attr">remove</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">referenceBlock</span> <span class="attr">name</span>=<span class="string">"category.product.addto.compare"</span> <span class="attr">remove</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="问题八："><a href="#问题八：" class="headerlink" title="问题八："></a>问题八：</h3><p>当前激活的导航栏项目没有active 激活状态，只能激活一次就被缓存，只能关闭full page cache，但是会影响性能。magento 2.3.3 bug 未修复，暂时关闭该效果。</p>
+<blockquote>
+<p>Magento\Theme\Block\Html\Topmenu::_getMenuItemClasses()<br>注释这几行：</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if ($item-&gt;getIsActive()) &#123;</span></span><br><span class="line"><span class="comment">//     $classes[] = 'active';</span></span><br><span class="line"><span class="comment">// &#125; elseif ($item-&gt;getHasActive()) &#123;</span></span><br><span class="line"><span class="comment">//     $classes[] = 'has-active';</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -343,15 +349,16 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Tabla de contenidos
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Inicio
         </li>
       </ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nexcess-权限："><span class="nav-number">1.</span> <span class="nav-text">nexcess 权限：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令："><span class="nav-number">2.</span> <span class="nav-text">常用命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一："><span class="nav-number">3.</span> <span class="nav-text">问题一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二："><span class="nav-number">4.</span> <span class="nav-text">问题二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三："><span class="nav-number">5.</span> <span class="nav-text">问题三：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题四："><span class="nav-number">6.</span> <span class="nav-text">问题四：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题五："><span class="nav-number">7.</span> <span class="nav-text">问题五：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题六："><span class="nav-number">8.</span> <span class="nav-text">问题六：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题七："><span class="nav-number">9.</span> <span class="nav-text">问题七：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题八："><span class="nav-number">10.</span> <span class="nav-text">问题八：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,14 +375,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">entradas</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">141</span>
-        <span class="site-state-item-name">schlagwörter</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -419,10 +426,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Creado mediante <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Tema – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

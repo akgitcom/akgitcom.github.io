@@ -46,9 +46,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Copiar',
-      copy_success: 'Copiado',
-      copy_failure: 'Copiar falló'
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
     },
     sidebarPadding: 40
   };
@@ -131,7 +131,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Cambiar a barra de navegación">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -145,22 +145,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Inicio</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Sobre mi</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Etiquetas</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archivo</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -196,71 +196,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/09/06/Rails-4-devise-%E7%A6%81%E6%AD%A2%E6%B3%A8%E5%86%8C%E6%96%B0%E7%94%A8%E6%88%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/09/06/Rails-4-devise-%E7%A6%81%E6%AD%A2%E6%B3%A8%E5%86%8C%E6%96%B0%E7%94%A8%E6%88%B7/" class="post-title-link" itemprop="url">Rails 4 devise 禁止注册新用户</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Publicado el</span>
-
-              <time title="Creado por: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-11-17 16:08:59" itemprop="dateModified" datetime="2015-11-17T16:08:59+08:00">2015-11-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>后台用的<strong>devise</strong>做权限，禁止注册用户。</p>
-<h1 id="将私钥传入，要注册的"><a href="#将私钥传入，要注册的" class="headerlink" title="将私钥传入，要注册的"></a>将私钥传入，要注册的</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devise_for <span class="symbol">:users</span>, <span class="symbol">:skip</span> =&gt; <span class="symbol">:registrations</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/09/06/Rails-4-Ckeditor-%E6%97%A0%E6%B3%95%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -283,16 +218,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
+              <time title="Erstellt: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-11-17 16:15:53" itemprop="dateModified" datetime="2015-11-17T16:15:53+08:00">2015-11-17</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-11-17 16:15:53" itemprop="dateModified" datetime="2015-11-17T16:15:53+08:00">2015-11-17</time>
               </span>
 
           
@@ -336,6 +271,71 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/09/06/Rails-4-devise-%E7%A6%81%E6%AD%A2%E6%B3%A8%E5%86%8C%E6%96%B0%E7%94%A8%E6%88%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/09/06/Rails-4-devise-%E7%A6%81%E6%AD%A2%E6%B3%A8%E5%86%8C%E6%96%B0%E7%94%A8%E6%88%B7/" class="post-title-link" itemprop="url">Rails 4 devise 禁止注册新用户</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-11-17 16:08:59" itemprop="dateModified" datetime="2015-11-17T16:08:59+08:00">2015-11-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>后台用的<strong>devise</strong>做权限，禁止注册用户。</p>
+<h1 id="将私钥传入，要注册的"><a href="#将私钥传入，要注册的" class="headerlink" title="将私钥传入，要注册的"></a>将私钥传入，要注册的</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devise_for <span class="symbol">:users</span>, <span class="symbol">:skip</span> =&gt; <span class="symbol">:registrations</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/09/06/Rails-4-unicorn-8080%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -358,16 +358,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
+              <time title="Erstellt: 2015-09-06 16:00:00" itemprop="dateCreated datePublished" datetime="2015-09-06T16:00:00+08:00">2015-09-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-11-17 16:12:20" itemprop="dateModified" datetime="2015-11-17T16:12:20+08:00">2015-11-17</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-11-17 16:12:20" itemprop="dateModified" datetime="2015-11-17T16:12:20+08:00">2015-11-17</time>
               </span>
 
           
@@ -435,16 +435,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-31 11:48:58" itemprop="dateCreated datePublished" datetime="2015-01-31T11:48:58+08:00">2015-01-31</time>
+              <time title="Erstellt: 2015-01-31 11:48:58" itemprop="dateCreated datePublished" datetime="2015-01-31T11:48:58+08:00">2015-01-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -578,16 +578,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-29 17:04:18" itemprop="dateCreated datePublished" datetime="2015-01-29T17:04:18+08:00">2015-01-29</time>
+              <time title="Erstellt: 2015-01-29 17:04:18" itemprop="dateCreated datePublished" datetime="2015-01-29T17:04:18+08:00">2015-01-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -606,7 +606,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2015/01/29/Ruby-on-Rails-%E7%BC%93%E5%AD%98%E6%8A%80%E6%9C%AF/#more" rel="contents">
-                Leer más &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -651,16 +651,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-19 09:12:00" itemprop="dateCreated datePublished" datetime="2015-01-19T09:12:00+08:00">2015-01-19</time>
+              <time title="Erstellt: 2015-01-19 09:12:00" itemprop="dateCreated datePublished" datetime="2015-01-19T09:12:00+08:00">2015-01-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -716,16 +716,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-15 11:00:42" itemprop="dateCreated datePublished" datetime="2015-01-15T11:00:42+08:00">2015-01-15</time>
+              <time title="Erstellt: 2015-01-15 11:00:42" itemprop="dateCreated datePublished" datetime="2015-01-15T11:00:42+08:00">2015-01-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -748,7 +748,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2015/01/15/%E6%B6%A8%E5%A7%BF%E5%8A%BF%EF%BC%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E7%9A%84%E9%A2%9C%E8%89%B2%E7%9C%8B%E8%B5%B7%E6%9D%A5%E9%9D%9E%E5%B8%B8%E9%AB%98%E6%A1%A3%EF%BC%9F/#more" rel="contents">
-                Leer más &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -793,16 +793,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-14 12:52:37" itemprop="dateCreated datePublished" datetime="2015-01-14T12:52:37+08:00">2015-01-14</time>
+              <time title="Erstellt: 2015-01-14 12:52:37" itemprop="dateCreated datePublished" datetime="2015-01-14T12:52:37+08:00">2015-01-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -865,16 +865,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-13 13:50:14" itemprop="dateCreated datePublished" datetime="2015-01-13T13:50:14+08:00">2015-01-13</time>
+              <time title="Erstellt: 2015-01-13 13:50:14" itemprop="dateCreated datePublished" datetime="2015-01-13T13:50:14+08:00">2015-01-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -945,16 +945,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2015-01-13 09:02:39" itemprop="dateCreated datePublished" datetime="2015-01-13T09:02:39+08:00">2015-01-13</time>
+              <time title="Erstellt: 2015-01-13 09:02:39" itemprop="dateCreated datePublished" datetime="2015-01-13T09:02:39+08:00">2015-01-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
               </span>
 
           
@@ -974,7 +974,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2015/01/13/%E5%AE%A2%E6%88%B7%E4%BD%93%E9%AA%8C%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E9%9D%A2/#more" rel="contents">
-                Leer más &raquo;
+                Weiterlesen &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -997,7 +997,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Página anterior"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Página siguiente"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -1019,10 +1019,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Tabla de contenidos
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Inicio
+          Übersicht
         </li>
       </ul>
 
@@ -1044,14 +1044,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">entradas</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">141</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
 </div>
@@ -1095,10 +1095,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Creado mediante <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Tema – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

@@ -308,7 +308,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-12-04 16:21:00" itemprop="dateModified" datetime="2019-12-04T16:21:00+08:00">2019-12-04</time>
+                <time title="Geändert am: 2019-12-04 16:43:37" itemprop="dateModified" datetime="2019-12-04T16:43:37+08:00">2019-12-04</time>
               </span>
 
           
@@ -382,6 +382,8 @@
 
 <h3 id="问题10"><a href="#问题10" class="headerlink" title="问题10"></a>问题10</h3><p>更改product detail 里的 short description 位置:<br>修改文件：app\design\frontend\TemplateMonster\theme007\Magento_Catalog\layout\catalog_product_view.xml<br>修改  after=”product.info.price” 属性 after=”product.info.options.wrapper”,属性值可以用 referenceBlock的遍历程序遍历出的列表里查找。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">move</span> <span class="attr">element</span>=<span class="string">"product.info.overview"</span> <span class="attr">destination</span>=<span class="string">"product.info.main"</span> <span class="attr">after</span>=<span class="string">"product.info.options.wrapper"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="问题11"><a href="#问题11" class="headerlink" title="问题11"></a>问题11</h3><p>在定义表格时，width（整个表格的宽度）不要设置为固定数值，定义为百分比类型，例如90%或者95%；再追加style=”table-layout:fixed;”，这样做可以使半角连续字符强制换行，不至于撑破列宽。需要注意的是，使用此参数后，不要轻易在tr(行)或td(列)中加入height属性，会使table不再被内容撑出适合的高度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout: fixed;"</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">cellpadding</span>=<span class="string">"2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 

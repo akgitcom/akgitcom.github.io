@@ -46,9 +46,9 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Kopieren',
-      copy_success: 'Kopiert',
-      copy_failure: 'Kopieren fehlgeschlagen'
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
     },
     sidebarPadding: 40
   };
@@ -131,7 +131,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -145,22 +145,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -218,16 +218,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2019-11-16 14:21:13" itemprop="dateCreated datePublished" datetime="2019-11-16T14:21:13+08:00">2019-11-16</time>
+              <time title="Created: 2019-11-16 14:21:13" itemprop="dateCreated datePublished" datetime="2019-11-16T14:21:13+08:00">2019-11-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-11-29 16:14:33" itemprop="dateModified" datetime="2019-11-29T16:14:33+08:00">2019-11-29</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-29 16:14:33" itemprop="dateModified" datetime="2019-11-29T16:14:33+08:00">2019-11-29</time>
               </span>
 
           
@@ -299,16 +299,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
+              <time title="Created: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-12-04 16:43:37" itemprop="dateModified" datetime="2019-12-04T16:43:37+08:00">2019-12-04</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-12 10:57:46" itemprop="dateModified" datetime="2019-12-12T10:57:46+08:00">2019-12-12</time>
               </span>
 
           
@@ -384,6 +384,14 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">move</span> <span class="attr">element</span>=<span class="string">"product.info.overview"</span> <span class="attr">destination</span>=<span class="string">"product.info.main"</span> <span class="attr">after</span>=<span class="string">"product.info.options.wrapper"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="问题11"><a href="#问题11" class="headerlink" title="问题11"></a>问题11</h3><p>在定义表格时，width（整个表格的宽度）不要设置为固定数值，定义为百分比类型，例如90%或者95%；再追加style=”table-layout:fixed;”，这样做可以使半角连续字符强制换行，不至于撑破列宽。需要注意的是，使用此参数后，不要轻易在tr(行)或td(列)中加入height属性，会使table不再被内容撑出适合的高度。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout: fixed;"</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">cellpadding</span>=<span class="string">"2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="问题12"><a href="#问题12" class="headerlink" title="问题12"></a>问题12</h3><p>nexcess 主机迁移到本地做开发环境，注意mysql版本，nexcess 文件和文件夹权限。</p>
+<p>Set Unsecure URL</p>
+<p>bin/magento setup:store-config:set –base-url=”<a href="http://www.magento2.com/&quot;" target="_blank" rel="noopener">http://www.magento2.com/&quot;</a><br>Set Secure URL</p>
+<p>bin/magento setup:store-config:set –base-url-secure=”<a href="https://www.magento2.com/&quot;" target="_blank" rel="noopener">https://www.magento2.com/&quot;</a><br>Clear Cache</p>
+<p>bin/magento cache:flush</p>
+<p>find /var/www/my_website -type d -exec chmod 0755 {} ;<br>find /var/www/my_website -type f -exec chmod 0644 {} ;</p>
+
       
     </div>
 
@@ -424,10 +432,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2019-03-02 16:24:52 / Geändert am: 17:05:02" itemprop="dateCreated datePublished" datetime="2019-03-02T16:24:52+08:00">2019-03-02</time>
+              <time title="Created: 2019-03-02 16:24:52 / Modified: 17:05:02" itemprop="dateCreated datePublished" datetime="2019-03-02T16:24:52+08:00">2019-03-02</time>
             </span>
 
           
@@ -486,10 +494,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2018-09-20 08:51:18 / Geändert am: 08:54:36" itemprop="dateCreated datePublished" datetime="2018-09-20T08:51:18+08:00">2018-09-20</time>
+              <time title="Created: 2018-09-20 08:51:18 / Modified: 08:54:36" itemprop="dateCreated datePublished" datetime="2018-09-20T08:51:18+08:00">2018-09-20</time>
             </span>
 
           
@@ -509,7 +517,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/20/%E5%8F%96%E7%BB%8F%E5%90%8E-%E5%AD%99%E6%82%9F%E7%A9%BA%E6%88%90%E4%BA%86%E6%96%97%E6%88%98%E8%83%9C%E4%BD%9B-%E9%82%A3%E7%8C%B4%E5%AD%90%E7%8C%B4%E5%AD%99%E5%91%A2%EF%BC%9F/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -554,10 +562,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2018-09-15 11:06:42 / Geändert am: 11:18:00" itemprop="dateCreated datePublished" datetime="2018-09-15T11:06:42+08:00">2018-09-15</time>
+              <time title="Created: 2018-09-15 11:06:42 / Modified: 11:18:00" itemprop="dateCreated datePublished" datetime="2018-09-15T11:06:42+08:00">2018-09-15</time>
             </span>
 
           
@@ -579,7 +587,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/15/%E5%AD%99%E6%82%9F%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%89%BE%E5%A6%82%E6%9D%A5%E6%8A%A5%E4%BB%87%EF%BC%9F/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -624,16 +632,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2018-09-15 10:51:16" itemprop="dateCreated datePublished" datetime="2018-09-15T10:51:16+08:00">2018-09-15</time>
+              <time title="Created: 2018-09-15 10:51:16" itemprop="dateCreated datePublished" datetime="2018-09-15T10:51:16+08:00">2018-09-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2018-09-20 08:55:15" itemprop="dateModified" datetime="2018-09-20T08:55:15+08:00">2018-09-20</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2018-09-20 08:55:15" itemprop="dateModified" datetime="2018-09-20T08:55:15+08:00">2018-09-20</time>
               </span>
 
           
@@ -653,7 +661,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/09/15/%E5%A6%82%E6%9E%9C%E4%BC%B4%E5%94%90%E5%83%A7%E5%8F%96%E7%BB%8F%E7%9A%84%E4%B8%89%E5%BE%92%E5%BC%9F%E6%98%AF%E6%9D%A8%E6%88%AC-%E5%AD%99%E6%82%9F%E7%A9%BA-%E7%89%9B%E9%AD%94/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -698,16 +706,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2018-04-23 15:35:13" itemprop="dateCreated datePublished" datetime="2018-04-23T15:35:13+08:00">2018-04-23</time>
+              <time title="Created: 2018-04-23 15:35:13" itemprop="dateCreated datePublished" datetime="2018-04-23T15:35:13+08:00">2018-04-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2018-09-19 17:06:06" itemprop="dateModified" datetime="2018-09-19T17:06:06+08:00">2018-09-19</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2018-09-19 17:06:06" itemprop="dateModified" datetime="2018-09-19T17:06:06+08:00">2018-09-19</time>
               </span>
 
           
@@ -726,7 +734,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/04/23/%E9%A9%AC%E9%9D%A2/#more" rel="contents">
-                Weiterlesen &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -771,10 +779,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2018-01-23 17:21:47 / Geändert am: 17:23:48" itemprop="dateCreated datePublished" datetime="2018-01-23T17:21:47+08:00">2018-01-23</time>
+              <time title="Created: 2018-01-23 17:21:47 / Modified: 17:23:48" itemprop="dateCreated datePublished" datetime="2018-01-23T17:21:47+08:00">2018-01-23</time>
             </span>
 
           
@@ -833,16 +841,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2018-01-19 13:19:31" itemprop="dateCreated datePublished" datetime="2018-01-19T13:19:31+08:00">2018-01-19</time>
+              <time title="Created: 2018-01-19 13:19:31" itemprop="dateCreated datePublished" datetime="2018-01-19T13:19:31+08:00">2018-01-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2018-04-23 16:01:01" itemprop="dateModified" datetime="2018-04-23T16:01:01+08:00">2018-04-23</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2018-04-23 16:01:01" itemprop="dateModified" datetime="2018-04-23T16:01:01+08:00">2018-04-23</time>
               </span>
 
           
@@ -905,10 +913,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2017-12-14 09:01:22 / Geändert am: 09:05:44" itemprop="dateCreated datePublished" datetime="2017-12-14T09:01:22+08:00">2017-12-14</time>
+              <time title="Created: 2017-12-14 09:01:22 / Modified: 09:05:44" itemprop="dateCreated datePublished" datetime="2017-12-14T09:01:22+08:00">2017-12-14</time>
             </span>
 
           
@@ -946,7 +954,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -968,10 +976,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Overview
         </li>
       </ul>
 
@@ -993,14 +1001,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">141</span>
-        <span class="site-state-item-name">schlagwörter</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -1044,10 +1052,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

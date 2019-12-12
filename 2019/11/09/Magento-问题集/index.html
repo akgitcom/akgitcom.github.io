@@ -46,23 +46,23 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Kopieren',
-      copy_success: 'Kopiert',
-      copy_failure: 'Kopieren fehlgeschlagen'
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
     },
     sidebarPadding: 40
   };
 </script>
 
   <meta name="description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 常用命令：php bin&#x2F;ma">
-<meta name="keywords" content="nginx,magento,403">
+<meta name="keywords" content="magento,403,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Magento 问题集">
 <meta property="og:url" content="http:&#x2F;&#x2F;akgitcom.github.io&#x2F;2019&#x2F;11&#x2F;09&#x2F;Magento-%E9%97%AE%E9%A2%98%E9%9B%86&#x2F;index.html">
 <meta property="og:site_name" content="Clouds of may">
 <meta property="og:description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 常用命令：php bin&#x2F;ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-04T08:43:37.788Z">
+<meta property="og:updated_time" content="2019-12-12T02:57:46.015Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://akgitcom.github.io/2019/11/09/Magento-%E9%97%AE%E9%A2%98%E9%9B%86/">
@@ -132,7 +132,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -146,22 +146,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -218,16 +218,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
+              <time title="Created: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2019-12-04 16:43:37" itemprop="dateModified" datetime="2019-12-04T16:43:37+08:00">2019-12-04</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-12 10:57:46" itemprop="dateModified" datetime="2019-12-12T10:57:46+08:00">2019-12-12</time>
               </span>
 
           
@@ -303,6 +303,14 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">move</span> <span class="attr">element</span>=<span class="string">"product.info.overview"</span> <span class="attr">destination</span>=<span class="string">"product.info.main"</span> <span class="attr">after</span>=<span class="string">"product.info.options.wrapper"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="问题11"><a href="#问题11" class="headerlink" title="问题11"></a>问题11</h3><p>在定义表格时，width（整个表格的宽度）不要设置为固定数值，定义为百分比类型，例如90%或者95%；再追加style=”table-layout:fixed;”，这样做可以使半角连续字符强制换行，不至于撑破列宽。需要注意的是，使用此参数后，不要轻易在tr(行)或td(列)中加入height属性，会使table不再被内容撑出适合的高度。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout: fixed;"</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">cellpadding</span>=<span class="string">"2"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="问题12"><a href="#问题12" class="headerlink" title="问题12"></a>问题12</h3><p>nexcess 主机迁移到本地做开发环境，注意mysql版本，nexcess 文件和文件夹权限。</p>
+<p>Set Unsecure URL</p>
+<p>bin/magento setup:store-config:set –base-url=”<a href="http://www.magento2.com/&quot;" target="_blank" rel="noopener">http://www.magento2.com/&quot;</a><br>Set Secure URL</p>
+<p>bin/magento setup:store-config:set –base-url-secure=”<a href="https://www.magento2.com/&quot;" target="_blank" rel="noopener">https://www.magento2.com/&quot;</a><br>Clear Cache</p>
+<p>bin/magento cache:flush</p>
+<p>find /var/www/my_website -type d -exec chmod 0755 {} ;<br>find /var/www/my_website -type f -exec chmod 0644 {} ;</p>
+
     </div>
 
     
@@ -311,9 +319,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/nginx/" rel="tag"># nginx</a>
               <a href="/tags/magento/" rel="tag"># magento</a>
               <a href="/tags/403/" rel="tag"># 403</a>
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
           </div>
 
         
@@ -360,16 +368,16 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Overview
         </li>
       </ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nexcess-权限："><span class="nav-number">1.</span> <span class="nav-text">nexcess 权限：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令："><span class="nav-number">2.</span> <span class="nav-text">常用命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一："><span class="nav-number">3.</span> <span class="nav-text">问题一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二："><span class="nav-number">4.</span> <span class="nav-text">问题二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三："><span class="nav-number">5.</span> <span class="nav-text">问题三：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题四："><span class="nav-number">6.</span> <span class="nav-text">问题四：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题五："><span class="nav-number">7.</span> <span class="nav-text">问题五：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题六："><span class="nav-number">8.</span> <span class="nav-text">问题六：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题七："><span class="nav-number">9.</span> <span class="nav-text">问题七：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题八："><span class="nav-number">10.</span> <span class="nav-text">问题八：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题九"><span class="nav-number">11.</span> <span class="nav-text">问题九</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题10"><span class="nav-number">12.</span> <span class="nav-text">问题10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题11"><span class="nav-number">13.</span> <span class="nav-text">问题11</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nexcess-权限："><span class="nav-number">1.</span> <span class="nav-text">nexcess 权限：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令："><span class="nav-number">2.</span> <span class="nav-text">常用命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一："><span class="nav-number">3.</span> <span class="nav-text">问题一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二："><span class="nav-number">4.</span> <span class="nav-text">问题二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三："><span class="nav-number">5.</span> <span class="nav-text">问题三：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题四："><span class="nav-number">6.</span> <span class="nav-text">问题四：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题五："><span class="nav-number">7.</span> <span class="nav-text">问题五：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题六："><span class="nav-number">8.</span> <span class="nav-text">问题六：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题七："><span class="nav-number">9.</span> <span class="nav-text">问题七：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题八："><span class="nav-number">10.</span> <span class="nav-text">问题八：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题九"><span class="nav-number">11.</span> <span class="nav-text">问题九</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题10"><span class="nav-number">12.</span> <span class="nav-text">问题10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题11"><span class="nav-number">13.</span> <span class="nav-text">问题11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题12"><span class="nav-number">14.</span> <span class="nav-text">问题12</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +394,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">141</span>
-        <span class="site-state-item-name">schlagwörter</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -437,10 +445,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

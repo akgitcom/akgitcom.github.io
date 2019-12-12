@@ -46,23 +46,23 @@
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
     },
     sidebarPadding: 40
   };
 </script>
 
   <meta name="description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 常用命令：php bin&#x2F;ma">
-<meta name="keywords" content="magento,403,nginx">
+<meta name="keywords" content="nginx,magento,403">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Magento 问题集">
 <meta property="og:url" content="http:&#x2F;&#x2F;akgitcom.github.io&#x2F;2019&#x2F;11&#x2F;09&#x2F;Magento-%E9%97%AE%E9%A2%98%E9%9B%86&#x2F;index.html">
 <meta property="og:site_name" content="Clouds of may">
 <meta property="og:description" content="magento 2.3.2 + themelnmp 1.6centos 7.2 + nginx + php 7.2.29 + mysql 5.7.29 + redis nexcess 权限：文件权限：find code -type f -exec chmod 0600 {} ;文件夹权限：find code -type d -exec chmod 0711 {} ; 常用命令：php bin&#x2F;ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-12T02:57:46.015Z">
+<meta property="og:updated_time" content="2019-12-12T03:21:24.113Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://akgitcom.github.io/2019/11/09/Magento-%E9%97%AE%E9%A2%98%E9%9B%86/">
@@ -132,7 +132,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -146,22 +146,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
@@ -218,16 +218,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
+              <time title="Erstellt: 2019-11-09 16:41:30" itemprop="dateCreated datePublished" datetime="2019-11-09T16:41:30+08:00">2019-11-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 10:57:46" itemprop="dateModified" datetime="2019-12-12T10:57:46+08:00">2019-12-12</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2019-12-12 11:21:24" itemprop="dateModified" datetime="2019-12-12T11:21:24+08:00">2019-12-12</time>
               </span>
 
           
@@ -306,10 +306,20 @@
 
 <h3 id="问题12"><a href="#问题12" class="headerlink" title="问题12"></a>问题12</h3><p>nexcess 主机迁移到本地做开发环境，注意mysql版本，nexcess 文件和文件夹权限。</p>
 <p>Set Unsecure URL</p>
-<p>bin/magento setup:store-config:set –base-url=”<a href="http://www.magento2.com/&quot;" target="_blank" rel="noopener">http://www.magento2.com/&quot;</a><br>Set Secure URL</p>
-<p>bin/magento setup:store-config:set –base-url-secure=”<a href="https://www.magento2.com/&quot;" target="_blank" rel="noopener">https://www.magento2.com/&quot;</a><br>Clear Cache</p>
-<p>bin/magento cache:flush</p>
-<p>find /var/www/my_website -type d -exec chmod 0755 {} ;<br>find /var/www/my_website -type f -exec chmod 0644 {} ;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/magento setup:store-config:<span class="built_in">set</span> --base-url=<span class="string">"http://www.magento2.com/"</span></span><br></pre></td></tr></table></figure>
+<p>Set Secure URL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/magento setup:store-config:<span class="built_in">set</span> --base-url-secure=<span class="string">"https://www.magento2.com/"</span></span><br></pre></td></tr></table></figure>
+<p>Clear Cache</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/magento cache:flush</span><br></pre></td></tr></table></figure>
+<p>权限:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find /var/www/my_website -<span class="built_in">type</span> d -<span class="built_in">exec</span> chmod 0755 &#123;&#125; \;</span><br><span class="line">find /var/www/my_website -<span class="built_in">type</span> f -<span class="built_in">exec</span> chmod 0644 &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<p>迁移后可能遇到：vendor\magento\framework\Encryption\Encryptor.php<br>加密方式问题,注释掉：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Gets latest hash algorithm version.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> int</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLatestHashVersion</span><span class="params">()</span>: <span class="title">int</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// if (extension_loaded('sodium') &amp;&amp; defined('SODIUM_CRYPTO_PWHASH_ALG_ARGON2ID13')) &#123;</span></span><br><span class="line">    <span class="comment">//     return self::HASH_VERSION_ARGON2ID13;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>::HASH_VERSION_SHA256;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建新用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php bin/magento admin:user:create</span><br></pre></td></tr></table></figure>
+<p>复制新用户密码给原有用户。</p>
 
     </div>
 
@@ -319,9 +329,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
               <a href="/tags/magento/" rel="tag"># magento</a>
               <a href="/tags/403/" rel="tag"># 403</a>
-              <a href="/tags/nginx/" rel="tag"># nginx</a>
           </div>
 
         
@@ -368,10 +378,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          Übersicht
         </li>
       </ul>
 
@@ -394,14 +404,14 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">141</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
 </div>
@@ -445,10 +455,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">aksoft</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         

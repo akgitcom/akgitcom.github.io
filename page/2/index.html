@@ -196,6 +196,69 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/12/14/Golang-basics-fetch-JSON-from-an-API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/14/Golang-basics-fetch-JSON-from-an-API/" class="post-title-link" itemprop="url">Golang basics - fetch JSON from an API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2017-12-14 09:01:22 / Geändert am: 09:05:44" itemprop="dateCreated datePublished" datetime="2017-12-14T09:01:22+08:00">2017-12-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">handleSubmit(e) &#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> &#123; name, password, department, gender &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">        fetch(<span class="string">'http://localhost:8080/api/user'</span>, &#123;</span><br><span class="line">            mode: <span class="string">"cors"</span>,  </span><br><span class="line">            method: <span class="string">'POST'</span>,</span><br><span class="line">            <span class="comment">// 使用fetch提交的json数据需要使用JSON.stringify转换为字符串</span></span><br><span class="line">            body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">                name,</span><br><span class="line">                password,</span><br><span class="line">                department,</span><br><span class="line">                gender</span><br><span class="line">            &#125;),</span><br><span class="line">            headers: &#123;</span><br><span class="line">                <span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">            .then(<span class="function">(<span class="params">res</span>) =&gt;</span> res.json())</span><br><span class="line">            .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="comment">// 当添加成功时，返回的json对象中应包含一个有效的id字段</span></span><br><span class="line">                <span class="comment">// 所以可以使用res.id来判断添加是否成功</span></span><br><span class="line">                <span class="keyword">if</span> (res.id) &#123;</span><br><span class="line">                    alert(<span class="string">'添加用户成功'</span>);</span><br><span class="line">                    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                        name: <span class="string">''</span>,</span><br><span class="line">                        password: <span class="number">0</span>,</span><br><span class="line">                        gender: <span class="string">''</span></span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    alert(<span class="string">'添加失败'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.error(err));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">userAdd</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	body, readErr := ioutil.ReadAll(r.Body)</span><br><span class="line">	<span class="keyword">if</span> readErr != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(readErr)</span><br><span class="line">	&#125;</span><br><span class="line">	user := User&#123;&#125;</span><br><span class="line">	jsonErr := json.Unmarshal(body, &amp;user)</span><br><span class="line">	<span class="keyword">if</span> jsonErr != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(jsonErr)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(body), user)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://blog.alexellis.io/golang-json-api-client/" target="_blank" rel="noopener">https://blog.alexellis.io/golang-json-api-client/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/11/25/%E4%BD%BF%E7%94%A8vultr%E7%9A%84snapshot-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDVPS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -865,65 +928,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/05/22/laravel-5-4-mix-webpack-%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/05/22/laravel-5-4-mix-webpack-%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">laravel 5.4 mix webpack 错误解决办法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2017-05-22 10:12:52 / Geändert am: 10:13:51" itemprop="dateCreated datePublished" datetime="2017-05-22T10:12:52+08:00">2017-05-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>各种错误解决办法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm update laravel-mix</span><br><span class="line">npm update</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -974,14 +978,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">141</span>
+        <span class="site-state-item-count">144</span>
         <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>

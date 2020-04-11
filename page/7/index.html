@@ -196,6 +196,154 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/12/rails-%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/01/12/rails-%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="post-title-link" itemprop="url">rails 第二天</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2015-01-12 09:05:47" itemprop="dateCreated datePublished" datetime="2015-01-12T09:05:47+08:00">2015-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>##调用淘宝IP的API，Helper：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">AdminsHelper</span></span></span><br><span class="line">  <span class="keyword">require</span> <span class="string">'open-uri'</span></span><br><span class="line">  <span class="keyword">require</span> <span class="string">'json'</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">(name)</span></span></span><br><span class="line">    <span class="string">"hello <span class="subst">#&#123;name&#125;</span>"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">get_location</span></span></span><br><span class="line">    ip = request.remote_ip</span><br><span class="line">    url = <span class="string">"http://ip.taobao.com/service/getIpInfo.php?ip="</span> + ip</span><br><span class="line">    response = Net::HTTP.get_response(URI.parse(url)).body</span><br><span class="line">    response = JSON.parse(response)[<span class="string">'data'</span>]</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">get_country</span></span></span><br><span class="line">    response = get_location[<span class="string">'country'</span>]</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/01/12/rails-%E7%AC%AC%E4%BA%8C%E5%A4%A9/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/12/rails-%E5%A4%9A%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/01/12/rails-%E5%A4%9A%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81/" class="post-title-link" itemprop="url">rails 多语言支持</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2015-01-12 09:01:42" itemprop="dateCreated datePublished" datetime="2015-01-12T09:01:42+08:00">2015-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2015-09-02 12:51:07" itemprop="dateModified" datetime="2015-09-02T12:51:07+08:00">2015-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://railscasts.com/episodes/138-i18n" target="_blank" rel="noopener">http://railscasts.com/episodes/138-i18n</a><br><a href="http://rails-i18n.org/" target="_blank" rel="noopener">http://rails-i18n.org/</a><br><a href="http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale" target="_blank" rel="noopener">Locale Examples</a><br><a href="http://blog.segmentfault.com/xiongxin/1190000000489534" target="_blank" rel="noopener">http://blog.segmentfault.com/xiongxin/1190000000489534</a></p>
+<p>###i18n.rb:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">I18n.default_locale = <span class="string">'zh-CN'</span></span><br><span class="line">LANGUAGES = &#123;</span><br><span class="line">    <span class="string">'English'</span> =&gt; <span class="string">'en'</span>,</span><br><span class="line">    <span class="string">'Chinese'</span> =&gt; <span class="string">'zh-CN'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###application.rb:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I18n.config.enforce_available_locales = <span class="literal">false</span></span><br><span class="line">config.i18n.load_path += Dir[Rails.root.join(<span class="string">'my'</span>, <span class="string">'locales'</span>, <span class="string">'*.&#123;rb,yml&#125;'</span>).to_s]</span><br><span class="line">config.i18n.default_locale = <span class="symbol">:<span class="string">'zh-CN'</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>kaminari 多语设置</p>
+</blockquote>
+<p>###zh-CN.yml:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">zh-<span class="symbol">CN:</span></span><br><span class="line">  <span class="symbol">views:</span></span><br><span class="line">      <span class="symbol">pagination:</span></span><br><span class="line">        <span class="symbol">first:</span> <span class="string">"« 首页"</span></span><br><span class="line">        <span class="symbol">last:</span> <span class="string">"末页 »"</span></span><br><span class="line">        <span class="symbol">previous:</span> <span class="string">"« 上一页"</span></span><br><span class="line">        <span class="symbol">next:</span> <span class="string">"下一页 »"</span></span><br><span class="line">        <span class="symbol">truncate:</span> <span class="string">"..."</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2015/01/11/kaminari%E7%AE%80%E8%A6%81%E6%96%87%E6%A1%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -533,14 +681,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-count">150</span>
         <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
@@ -579,7 +727,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

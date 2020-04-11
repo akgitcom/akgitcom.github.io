@@ -196,6 +196,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2018/01/23/js-%E9%80%92%E5%BD%92%E3%80%81%E9%9D%9E%E9%80%92%E5%BD%92%E7%94%9F%E6%88%90%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/23/js-%E9%80%92%E5%BD%92%E3%80%81%E9%9D%9E%E9%80%92%E5%BD%92%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">js 递归、非递归生成树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2018-01-23 17:21:47 / Geändert am: 17:23:48" itemprop="dateCreated datePublished" datetime="2018-01-23T17:21:47+08:00">2018-01-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>递归：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"办公管理"</span>, <span class="attr">pid</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">"请假申请"</span>, <span class="attr">pid</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"出差申请"</span>, <span class="attr">pid</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">"请假记录"</span>, <span class="attr">pid</span>: <span class="number">2</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">name</span>: <span class="string">"系统设置"</span>, <span class="attr">pid</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">6</span>, <span class="attr">name</span>: <span class="string">"权限管理"</span>, <span class="attr">pid</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">name</span>: <span class="string">"用户角色"</span>, <span class="attr">pid</span>: <span class="number">6</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">8</span>, <span class="attr">name</span>: <span class="string">"菜单设置"</span>, <span class="attr">pid</span>: <span class="number">6</span> &#125;,</span><br><span class="line">];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toTree</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 删除 所有 children,以防止多次调用</span></span><br><span class="line">    data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">delete</span> item.children;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将数据存储为 以 id 为 KEY 的 map 索引数据列</span></span><br><span class="line">    <span class="keyword">var</span> map = &#123;&#125;;</span><br><span class="line">    data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        map[item.id] = item;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//        console.log(map);</span></span><br><span class="line">    <span class="keyword">var</span> val = [];</span><br><span class="line">    data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 以当前遍历项，的pid,去map对象中找到索引的id</span></span><br><span class="line">        <span class="keyword">var</span> parent = map[item.pid];</span><br><span class="line">        <span class="comment">// 好绕啊，如果找到索引，那么说明此项不在顶级当中,那么需要把此项添加到，他对应的父级中</span></span><br><span class="line">        <span class="keyword">if</span> (parent) &#123;</span><br><span class="line">            (parent.children || (parent.children = [])).push(item);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果没有在map中找到对应的索引ID,那么直接把 当前的item添加到 val结果集中，作为顶级</span></span><br><span class="line">            val.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"><span class="built_in">console</span>.log(toTree(data))</span><br><span class="line"><span class="built_in">console</span>.timeEnd();</span><br></pre></td></tr></table></figure>
+
+<p>非递归:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"><span class="keyword">var</span> nodes = [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"12"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"0"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"13"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"12"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"14"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"13"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"15"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"15"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"16"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"12"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,];</span><br><span class="line"><span class="keyword">var</span> map = &#123;&#125;, node, roots = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nodes.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">node = nodes[i];</span><br><span class="line">node.children = [];</span><br><span class="line">map[node.id] = i; <span class="comment">// use map to look-up the parents</span></span><br><span class="line"><span class="keyword">if</span> (node.parentId !== <span class="string">"0"</span>) &#123;</span><br><span class="line">    nodes[map[node.parentId]].children.push(node);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    roots.push(node);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd();</span><br><span class="line"><span class="built_in">console</span>.log(roots); <span class="comment">// &lt;-- there's your tree</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2018/01/19/%E6%89%8B%E5%8A%A8%E8%A7%A6%E5%8F%91-window-%E7%9A%84-resize-%E4%BA%8B%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/19/%E6%89%8B%E5%8A%A8%E8%A7%A6%E5%8F%91-window-%E7%9A%84-resize-%E4%BA%8B%E4%BB%B6/" class="post-title-link" itemprop="url">手动触发 window 的 resize 事件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2018-01-19 13:19:31" itemprop="dateCreated datePublished" datetime="2018-01-19T13:19:31+08:00">2018-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2018-04-23 16:01:01" itemprop="dateModified" datetime="2018-04-23T16:01:01+08:00">2018-04-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="使用-jquery"><a href="#使用-jquery" class="headerlink" title="使用 jquery"></a>使用 jquery</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).trigger(<span class="string">'resize'</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-dispatchEvent"><a href="#使用-dispatchEvent" class="headerlink" title="使用 dispatchEvent"></a>使用 dispatchEvent</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Event.prototype.initEvent) &#123;</span><br><span class="line">    <span class="keyword">const</span> evt = <span class="built_in">window</span>.document.createEvent(<span class="string">'UIEvents'</span>);</span><br><span class="line">    evt.initUIEvent(<span class="string">'resize'</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="built_in">window</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">window</span>.dispatchEvent(evt);</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.dispatchEvent(<span class="keyword">new</span> Event(<span class="string">'resize'</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>由于 window 的 resize 事件属于高频操作，需要进行 debounce 等方式来限制执行频率。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Avoid costly calculations while the window size is in flux.</span></span><br><span class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'resize'</span>, _.debounce(calculateLayout, <span class="number">150</span>));</span><br></pre></td></tr></table></figure>
+
+<p>另外，还有一个类似 debounce 的函数 throttle，两者的区别可以参考<a href="https://css-tricks.com/debouncing-throttling-explained-examples/" target="_blank" rel="noopener">这篇文章</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/12/14/Golang-basics-fetch-JSON-from-an-API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -771,163 +905,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/06/22/centos-%E5%AE%89%E8%A3%85-oracle-11-%E5%AE%A2%E6%88%B7%E7%AB%AF-php-oci8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/06/22/centos-%E5%AE%89%E8%A3%85-oracle-11-%E5%AE%A2%E6%88%B7%E7%AB%AF-php-oci8/" class="post-title-link" itemprop="url">centos 安装 oracle 11 客户端 php oci8</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2017-06-22 11:35:23 / Geändert am: 11:41:41" itemprop="dateCreated datePublished" datetime="2017-06-22T11:35:23+08:00">2017-06-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>服务器用的版本为：Version 11.2.0.4.0 ,自行替换版本号。<br>下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html</a> 用户名QQ邮箱。<br>用到的包：</p>
-<blockquote>
-<blockquote>
-</blockquote>
-<p>oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm<br>oracle-instantclient11.2-sqlplus-11.2.0.4.0-1.x86_64.rpm<br>oracle-instantclient11.2-devel-11.2.0.4.0-1.x86_64.rpm</p>
-</blockquote>
-<p>1.下载以下包，但是需要一个oracle的OTN的注册帐号（免费）：<br><a href="http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-basic-11.2.0.2.0.i386.rpm" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-basic-11.2.0.2.0.i386.rpm</a><br><a href="http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-sqlplus-11.2.0.2.0.i386.rpm" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-sqlplus-11.2.0.2.0.i386.rpm</a><br>然后把该两包放到CentOS一个任意目录，比如 ~/tmp，以下过程我都用root帐号/</p>
-<p>2.安装该包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#rpm -ivh ~/tmp/oracle-instantclient11.2-basic-11.2.0.4.0.i386.rpm</span></span><br><span class="line"><span class="comment">#rpm -ivh ~/tmp/oracle-instantclient11.2-sqlplus-11.2.0.4.0.i386.rpm</span></span><br><span class="line"><span class="comment">#vi ~/.bashrc   加入</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/lib:/usr/lib/oracle/11.2/client/lib      <span class="comment">#对于64位版本可能是client64</span></span><br></pre></td></tr></table></figure>
-
-<p>3.测试一下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sqlplus /nolog  系统报错</span></span><br><span class="line">sqlplus: error <span class="keyword">while</span> loading shared libraries: libsqlplus.so: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>4.然后需要：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vi /etc/ld.so.conf 加入</span></span><br><span class="line">/usr/lib/oracle/11.2/client/lib/</span><br><span class="line"><span class="comment">#/sbin/ldconfig</span></span><br></pre></td></tr></table></figure>
-
-<p>这样重新运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sqlplus /nolog    </span></span><br><span class="line">SQL*Plus: Release 11.2.0.2.0 Production on Tue Nov 8 11:09:58 2011</span><br><span class="line">Copyright (c) 1982, 2010, Oracle.  All rights reserved.</span><br><span class="line">SQL&gt;</span><br></pre></td></tr></table></figure>
-<p>成功了</p>
-<p>5.如需要连接远程oracle，必须配置TNS</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mkdir -p /usr/lib/oracle/11.2/network/admin</span></span><br><span class="line"><span class="comment">#vi /usr/lib/oracle/11.2/network/admin/tnsnames.ora</span></span><br></pre></td></tr></table></figure>
-<p>加入一个Oracle数据库tns信息</p>
-<blockquote>
-<blockquote>
-</blockquote>
-<p>PRODB2 =<br>    (DESCRIPTION =<br>            (ADDRESS_LIST =<br>                    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.3.103.1)(PORT = 1521))<br>            )<br>            (CONNECT_DATA =<br>                    (SERVER=DEDICATED)<br>                    (SID = PRODB2)<br>            )<br>    )</p>
-</blockquote>
-<p>同时修改环境变量  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vi ~/.bashrc</span></span><br><span class="line">LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/lib:/usr/lib/oracle/11.2/client/lib</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=/usr/lib/oracle/11.2</span><br><span class="line"><span class="built_in">export</span> TNS_ADMIN=/usr/lib/oracle/11.2/network/admin</span><br></pre></td></tr></table></figure>
-<p>重启一下环境变量，或者用户logout/login一次</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#source ~/.bashrc</span></span><br></pre></td></tr></table></figure>
-
-<p>测试一下    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sqlplus myOracleUsername/password@PRODB2</span></span><br><span class="line">SQL*Plus: Release 11.2.0.2.0 Production on Tue Nov 8 11:11:56 2011</span><br><span class="line">Copyright (c) 1982, 2010, Oracle.  All rights reserved.</span><br><span class="line">Connected to:</span><br><span class="line">Oracle Database 10g Enterprise Edition Release 10.2.0.2.0 - 64bit Production</span><br><span class="line">With the Partitioning, Real Application Clusters, OLAP and Data Mining options</span><br><span class="line">SQL&gt; select * from tab;</span><br></pre></td></tr></table></figure>
-<p>成功。</p>
-<p>6.如果其他用户需要使用sqlplus，需要在该用户的~/.bashrc文件中添加上面提到的3行环境变量</p>
-<p>感谢：本文完全参考：<a href="http://cysky.blog.51cto.com/211942/563294" target="_blank" rel="noopener">http://cysky.blog.51cto.com/211942/563294</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/05/24/laravel-%E8%BF%9E%E6%8E%A5-oracle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/05/24/laravel-%E8%BF%9E%E6%8E%A5-oracle/" class="post-title-link" itemprop="url">laravel 连接 oracle</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2017-05-24 11:08:46 / Geändert am: 11:43:25" itemprop="dateCreated datePublished" datetime="2017-05-24T11:08:46+08:00">2017-05-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>下载oracle 11.2.0.1.0 basic, sdk<br><a href="http://www.oracle.com/technetwork/cn/topics/winx64soft-101515-zhs.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/cn/topics/winx64soft-101515-zhs.html</a></p>
-<p>sdk 解压到c:\根目录<br>basic 里的dll 复制到 D:\WTServer\bin\PHP\64bit-PHP-7.1</p>
-<p>修改php.ini 打开扩展:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension = php_pdo_oci.dll -- PDO扩展 </span><br><span class="line">extension = php_oci8_11g.dll  -- oracle函数扩展</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -978,14 +955,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-count">150</span>
         <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
@@ -1024,7 +1001,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -196,6 +196,132 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2020/04/11/Python-%E8%A7%A3%E6%9E%90-PDF-%E8%BD%AC%E6%8D%A2%E4%B8%BAcsv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/11/Python-%E8%A7%A3%E6%9E%90-PDF-%E8%BD%AC%E6%8D%A2%E4%B8%BAcsv/" class="post-title-link" itemprop="url">Python 解析 PDF 转换为csv</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2020-04-11 09:38:49 / Geändert am: 09:46:17" itemprop="dateCreated datePublished" datetime="2020-04-11T09:38:49+08:00">2020-04-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>pdfplumber 这个库相对另外几个 解析出来的更容易理解，返回list，还可以将PDF中的表格形式返回给console</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pdfplumber</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_expired</span><span class="params">(dt)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(dt, str):</span><br><span class="line">        dt = datetime.datetime.strptime(dt, <span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span><br><span class="line">    <span class="keyword">return</span> datetime.datetime.now() &gt; dt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> is_expired(<span class="string">'2020-08-09 00:00:00'</span>):</span><br><span class="line">    sys.exit()</span><br><span class="line"><span class="comment"># 交互</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    pdfName = input(<span class="string">"输入PDF文件名："</span>)</span><br><span class="line">    <span class="keyword">with</span> pdfplumber.open(pdfName) <span class="keyword">as</span> pdf:</span><br><span class="line">        first_page = pdf.pages[<span class="number">0</span>]</span><br><span class="line">        print(len(pdf.pages))</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        data = []</span><br><span class="line">        <span class="keyword">for</span> page <span class="keyword">in</span> pdf.pages:</span><br><span class="line">            <span class="keyword">for</span> table <span class="keyword">in</span> page.extract_tables():</span><br><span class="line">                <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># print(i, table[1])</span></span><br><span class="line">                    print(i, table[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line">                    <span class="comment"># 判断qty是否是纯数字</span></span><br><span class="line">                    <span class="keyword">if</span> table[<span class="number">1</span>][<span class="number">1</span>].isdigit():</span><br><span class="line">                        print(<span class="string">'单sku和多数量的订单'</span>, table[<span class="number">1</span>][<span class="number">0</span>], table[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line">                        <span class="keyword">for</span> x <span class="keyword">in</span> range(int(table[<span class="number">1</span>][<span class="number">1</span>])):</span><br><span class="line">                            data.append(table[<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="comment"># qty不是纯数字，多行文本会用\n链接</span></span><br><span class="line">                        print(<span class="string">'多个sku多数量的订单'</span>, table[<span class="number">1</span>][<span class="number">0</span>], table[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line">                        skuList = table[<span class="number">1</span>][<span class="number">0</span>].split(<span class="string">'\n'</span>)</span><br><span class="line">                        qtyList = table[<span class="number">1</span>][<span class="number">1</span>].split(<span class="string">'\n'</span>)</span><br><span class="line">                        <span class="comment"># ['WF-DC-TAUPE-T', 'WF-DC-GREY-T'] ['2', '1']</span></span><br><span class="line">                        print(skuList, qtyList)</span><br><span class="line">                        <span class="keyword">for</span> s <span class="keyword">in</span> range(len(skuList)):</span><br><span class="line">                            <span class="keyword">for</span> q <span class="keyword">in</span> qtyList[s]:</span><br><span class="line">                                data.append(skuList[s])</span><br><span class="line">                i = i + <span class="number">1</span></span><br><span class="line">    print(data)</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">"result.csv"</span>, <span class="string">"w"</span>, newline=<span class="string">'\r\n'</span>) <span class="keyword">as</span> file:</span><br><span class="line">        file.write(<span class="string">'SKU'</span> + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> data:</span><br><span class="line">            print(v)</span><br><span class="line">            file.write(v + <span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> valueError:</span><br><span class="line">    print(<span class="string">'pdf文件错误：'</span> + valueError)</span><br><span class="line">    <span class="comment"># windows</span></span><br><span class="line">    os.system(<span class="string">'pause'</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2020/03/21/Laravel-JWT-auth-%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/21/Laravel-JWT-auth-%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Laravel JWT auth 捕获异常</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2020-03-21 15:08:41 / Geändert am: 15:22:59" itemprop="dateCreated datePublished" datetime="2020-03-21T15:08:41+08:00">2020-03-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>lravel 5.8 使用jwt-auth，捕获异常</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;middleware(<span class="string">'jwt.auth'</span>, [<span class="string">'except'</span> =&gt; [<span class="string">'login'</span>]]);</span><br><span class="line"><span class="comment">// 另外关于上面的中间件，官方文档写的是『auth:api』</span></span><br><span class="line"><span class="comment">// 但是我推荐用 『jwt.auth』，效果是一样的，但是有更加丰富的报错信息返回</span></span><br></pre></td></tr></table></figure>
+
+<p>会报错401,打印sql 发现是config\auth.php guards 需要设置为默认值为api，如果没有就会读取默认的tables查询user。着急，两种方法记录一下，日后在完善。<br>修改：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;middleware(<span class="string">'auth:api'</span>, [<span class="string">'except'</span> =&gt; [<span class="string">'login'</span>]]);</span><br><span class="line"><span class="comment">// 指定guards 为 api</span></span><br><span class="line"><span class="string">'guards'</span> =&gt; [</span><br><span class="line">    <span class="string">'api'</span> =&gt; [</span><br><span class="line">        <span class="string">'driver'</span> =&gt; <span class="string">'jwt'</span>,</span><br><span class="line">        <span class="string">'provider'</span> =&gt; <span class="string">'admin_users'</span>,</span><br><span class="line">        <span class="string">'hash'</span> =&gt; <span class="keyword">false</span>,</span><br><span class="line">    ],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>修改\app\Http\Middleware\Authenticate.php,重写authenticate($request, array $guards)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Illuminate\Http\Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $guards</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \Illuminate\Http\JsonResponse|void</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> AuthenticationException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">authenticate</span><span class="params">($request, array $guards)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>($guards)) &#123;</span><br><span class="line">            $guards = [<span class="keyword">null</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ($guards <span class="keyword">as</span> $guard) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;auth-&gt;guard($guard)-&gt;check()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;auth-&gt;shouldUse($guard);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($guards[<span class="number">0</span>]==<span class="string">'api'</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (! $user = \JWTAuth::parseToken()-&gt;authenticate())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> response()-&gt;json([</span><br><span class="line">                        <span class="string">'error'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">                        <span class="string">'code'</span>  =&gt; <span class="number">10</span>,</span><br><span class="line">                        <span class="string">'data'</span>  =&gt; [</span><br><span class="line">                            <span class="string">'message'</span>   =&gt; <span class="string">'User not found by given token'</span></span><br><span class="line">                        ]</span><br><span class="line">                    ]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([</span><br><span class="line">                    <span class="string">'error'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">                    <span class="string">'code'</span>  =&gt; <span class="number">11</span>,</span><br><span class="line">                    <span class="string">'data'</span>  =&gt; [</span><br><span class="line">                        <span class="string">'message'</span>   =&gt; <span class="string">'Token Expired'</span></span><br><span class="line">                    ]</span><br><span class="line">                ]);</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (TokenInvalidException $e) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([</span><br><span class="line">                    <span class="string">'error'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">                    <span class="string">'code'</span>  =&gt; <span class="number">12</span>,</span><br><span class="line">                    <span class="string">'data'</span>  =&gt; [</span><br><span class="line">                        <span class="string">'message'</span>   =&gt; <span class="string">'Invalid Token'</span></span><br><span class="line">                    ]</span><br><span class="line">                ]);</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (JWTException $e) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([</span><br><span class="line">                    <span class="string">'error'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">                    <span class="string">'code'</span>  =&gt; <span class="number">13</span>,</span><br><span class="line">                    <span class="string">'data'</span>  =&gt; [</span><br><span class="line">                        <span class="string">'message'</span>   =&gt; <span class="string">'Token absent'</span></span><br><span class="line">                    ]</span><br><span class="line">                ]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AuthenticationException(</span><br><span class="line">            <span class="string">'Unauthenticated.'</span>, $guards, <span class="keyword">$this</span>-&gt;redirectTo($request)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>也可以写在这里<br>\app\Exceptions\Handler.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Exceptions</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Exception</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Auth</span>\<span class="title">AuthenticationException</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Exceptions</span>\<span class="title">Handler</span> <span class="title">as</span> <span class="title">ExceptionHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpKernel</span>\<span class="title">Exception</span>\<span class="title">UnauthorizedHttpException</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Handler</span> <span class="keyword">extends</span> <span class="title">ExceptionHandler</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * A list of the exception types that are not reported.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> $dontReport = [</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * A list of the inputs that are never flashed for validation exceptions.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> $dontFlash = [</span><br><span class="line">        <span class="string">'password'</span>,</span><br><span class="line">        <span class="string">'password_confirmation'</span>,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Report or log an exception.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Exception $exception</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed|void</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">report</span><span class="params">(Exception $exception)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::report($exception);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Render an exception into an HTTP response.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Illuminate\Http\Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Exception $exception</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">($request, Exception $exception)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//也可以在这里写</span></span><br><span class="line"><span class="comment">//        if ($exception instanceof AuthenticationException)&#123;</span></span><br><span class="line"><span class="comment">//            $guard = $exception-&gt;guards()[0];</span></span><br><span class="line"><span class="comment">//            if ($guard=='api')&#123;</span></span><br><span class="line"><span class="comment">//                $preException = $exception-&gt;getPrevious();</span></span><br><span class="line"><span class="comment">//                return response()-&gt;json(['error' =&gt; 'TOKEN_INVALID']);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">        <span class="keyword">if</span> ($exception <span class="keyword">instanceof</span> UnauthorizedHttpException) &#123;</span><br><span class="line">            $preException = $exception-&gt;getPrevious();</span><br><span class="line">            <span class="keyword">if</span> ($preException <span class="keyword">instanceof</span></span><br><span class="line">                \Tymon\JWTAuth\Exceptions\TokenExpiredException) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([<span class="string">'error'</span> =&gt; <span class="string">'TOKEN_EXPIRED'</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($preException <span class="keyword">instanceof</span></span><br><span class="line">                \Tymon\JWTAuth\Exceptions\TokenInvalidException) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([<span class="string">'error'</span> =&gt; <span class="string">'TOKEN_INVALID'</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($preException <span class="keyword">instanceof</span></span><br><span class="line">                \Tymon\JWTAuth\Exceptions\TokenBlacklistedException) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([<span class="string">'error'</span> =&gt; <span class="string">'TOKEN_BLACKLISTED'</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ($exception-&gt;getMessage() === <span class="string">'Token not provided'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> response()-&gt;json([<span class="string">'error'</span> =&gt; <span class="string">'Token not provided'</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">parent</span>::render($request, $exception);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2019/12/14/Python%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0Excel%E6%96%87%E5%AD%97%E5%88%B0PDF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -829,140 +955,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2018/01/23/js-%E9%80%92%E5%BD%92%E3%80%81%E9%9D%9E%E9%80%92%E5%BD%92%E7%94%9F%E6%88%90%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/23/js-%E9%80%92%E5%BD%92%E3%80%81%E9%9D%9E%E9%80%92%E5%BD%92%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">js 递归、非递归生成树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2018-01-23 17:21:47 / Geändert am: 17:23:48" itemprop="dateCreated datePublished" datetime="2018-01-23T17:21:47+08:00">2018-01-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>递归：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"办公管理"</span>, <span class="attr">pid</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">"请假申请"</span>, <span class="attr">pid</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"出差申请"</span>, <span class="attr">pid</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">"请假记录"</span>, <span class="attr">pid</span>: <span class="number">2</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">name</span>: <span class="string">"系统设置"</span>, <span class="attr">pid</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">6</span>, <span class="attr">name</span>: <span class="string">"权限管理"</span>, <span class="attr">pid</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">name</span>: <span class="string">"用户角色"</span>, <span class="attr">pid</span>: <span class="number">6</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">8</span>, <span class="attr">name</span>: <span class="string">"菜单设置"</span>, <span class="attr">pid</span>: <span class="number">6</span> &#125;,</span><br><span class="line">];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toTree</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 删除 所有 children,以防止多次调用</span></span><br><span class="line">    data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">delete</span> item.children;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将数据存储为 以 id 为 KEY 的 map 索引数据列</span></span><br><span class="line">    <span class="keyword">var</span> map = &#123;&#125;;</span><br><span class="line">    data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        map[item.id] = item;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//        console.log(map);</span></span><br><span class="line">    <span class="keyword">var</span> val = [];</span><br><span class="line">    data.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 以当前遍历项，的pid,去map对象中找到索引的id</span></span><br><span class="line">        <span class="keyword">var</span> parent = map[item.pid];</span><br><span class="line">        <span class="comment">// 好绕啊，如果找到索引，那么说明此项不在顶级当中,那么需要把此项添加到，他对应的父级中</span></span><br><span class="line">        <span class="keyword">if</span> (parent) &#123;</span><br><span class="line">            (parent.children || (parent.children = [])).push(item);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果没有在map中找到对应的索引ID,那么直接把 当前的item添加到 val结果集中，作为顶级</span></span><br><span class="line">            val.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"><span class="built_in">console</span>.log(toTree(data))</span><br><span class="line"><span class="built_in">console</span>.timeEnd();</span><br></pre></td></tr></table></figure>
-
-<p>非递归:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"><span class="keyword">var</span> nodes = [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"12"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"0"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"13"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"12"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"14"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"13"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"15"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"15"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"16"</span>,</span><br><span class="line">    <span class="string">"parentId"</span>: <span class="string">"12"</span>,</span><br><span class="line">    <span class="string">"text"</span>: <span class="string">"Man"</span>,</span><br><span class="line">    <span class="string">"level"</span>: <span class="string">"1"</span>,</span><br><span class="line">&#125;,];</span><br><span class="line"><span class="keyword">var</span> map = &#123;&#125;, node, roots = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nodes.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">node = nodes[i];</span><br><span class="line">node.children = [];</span><br><span class="line">map[node.id] = i; <span class="comment">// use map to look-up the parents</span></span><br><span class="line"><span class="keyword">if</span> (node.parentId !== <span class="string">"0"</span>) &#123;</span><br><span class="line">    nodes[map[node.parentId]].children.push(node);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    roots.push(node);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd();</span><br><span class="line"><span class="built_in">console</span>.log(roots); <span class="comment">// &lt;-- there's your tree</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2018/01/19/%E6%89%8B%E5%8A%A8%E8%A7%A6%E5%8F%91-window-%E7%9A%84-resize-%E4%BA%8B%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/19/%E6%89%8B%E5%8A%A8%E8%A7%A6%E5%8F%91-window-%E7%9A%84-resize-%E4%BA%8B%E4%BB%B6/" class="post-title-link" itemprop="url">手动触发 window 的 resize 事件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-
-              <time title="Erstellt: 2018-01-19 13:19:31" itemprop="dateCreated datePublished" datetime="2018-01-19T13:19:31+08:00">2018-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2018-04-23 16:01:01" itemprop="dateModified" datetime="2018-04-23T16:01:01+08:00">2018-04-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="使用-jquery"><a href="#使用-jquery" class="headerlink" title="使用 jquery"></a>使用 jquery</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).trigger(<span class="string">'resize'</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-dispatchEvent"><a href="#使用-dispatchEvent" class="headerlink" title="使用 dispatchEvent"></a>使用 dispatchEvent</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Event.prototype.initEvent) &#123;</span><br><span class="line">    <span class="keyword">const</span> evt = <span class="built_in">window</span>.document.createEvent(<span class="string">'UIEvents'</span>);</span><br><span class="line">    evt.initUIEvent(<span class="string">'resize'</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="built_in">window</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">window</span>.dispatchEvent(evt);</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.dispatchEvent(<span class="keyword">new</span> Event(<span class="string">'resize'</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>由于 window 的 resize 事件属于高频操作，需要进行 debounce 等方式来限制执行频率。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Avoid costly calculations while the window size is in flux.</span></span><br><span class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'resize'</span>, _.debounce(calculateLayout, <span class="number">150</span>));</span><br></pre></td></tr></table></figure>
-
-<p>另外，还有一个类似 debounce 的函数 throttle，两者的区别可以参考<a href="https://css-tricks.com/debouncing-throttling-explained-examples/" target="_blank" rel="noopener">这篇文章</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1013,14 +1005,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-count">150</span>
         <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
@@ -1059,7 +1051,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

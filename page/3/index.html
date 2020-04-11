@@ -196,6 +196,163 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/06/22/centos-%E5%AE%89%E8%A3%85-oracle-11-%E5%AE%A2%E6%88%B7%E7%AB%AF-php-oci8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/22/centos-%E5%AE%89%E8%A3%85-oracle-11-%E5%AE%A2%E6%88%B7%E7%AB%AF-php-oci8/" class="post-title-link" itemprop="url">centos 安装 oracle 11 客户端 php oci8</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2017-06-22 11:35:23 / Geändert am: 11:41:41" itemprop="dateCreated datePublished" datetime="2017-06-22T11:35:23+08:00">2017-06-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>服务器用的版本为：Version 11.2.0.4.0 ,自行替换版本号。<br>下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html</a> 用户名QQ邮箱。<br>用到的包：</p>
+<blockquote>
+<blockquote>
+</blockquote>
+<p>oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm<br>oracle-instantclient11.2-sqlplus-11.2.0.4.0-1.x86_64.rpm<br>oracle-instantclient11.2-devel-11.2.0.4.0-1.x86_64.rpm</p>
+</blockquote>
+<p>1.下载以下包，但是需要一个oracle的OTN的注册帐号（免费）：<br><a href="http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-basic-11.2.0.2.0.i386.rpm" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-basic-11.2.0.2.0.i386.rpm</a><br><a href="http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-sqlplus-11.2.0.2.0.i386.rpm" target="_blank" rel="noopener">http://download.oracle.com/otn/linux/instantclient/112020/oracle-instantclient11.2-sqlplus-11.2.0.2.0.i386.rpm</a><br>然后把该两包放到CentOS一个任意目录，比如 ~/tmp，以下过程我都用root帐号/</p>
+<p>2.安装该包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#rpm -ivh ~/tmp/oracle-instantclient11.2-basic-11.2.0.4.0.i386.rpm</span></span><br><span class="line"><span class="comment">#rpm -ivh ~/tmp/oracle-instantclient11.2-sqlplus-11.2.0.4.0.i386.rpm</span></span><br><span class="line"><span class="comment">#vi ~/.bashrc   加入</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/lib:/usr/lib/oracle/11.2/client/lib      <span class="comment">#对于64位版本可能是client64</span></span><br></pre></td></tr></table></figure>
+
+<p>3.测试一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sqlplus /nolog  系统报错</span></span><br><span class="line">sqlplus: error <span class="keyword">while</span> loading shared libraries: libsqlplus.so: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>4.然后需要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vi /etc/ld.so.conf 加入</span></span><br><span class="line">/usr/lib/oracle/11.2/client/lib/</span><br><span class="line"><span class="comment">#/sbin/ldconfig</span></span><br></pre></td></tr></table></figure>
+
+<p>这样重新运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sqlplus /nolog    </span></span><br><span class="line">SQL*Plus: Release 11.2.0.2.0 Production on Tue Nov 8 11:09:58 2011</span><br><span class="line">Copyright (c) 1982, 2010, Oracle.  All rights reserved.</span><br><span class="line">SQL&gt;</span><br></pre></td></tr></table></figure>
+<p>成功了</p>
+<p>5.如需要连接远程oracle，必须配置TNS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mkdir -p /usr/lib/oracle/11.2/network/admin</span></span><br><span class="line"><span class="comment">#vi /usr/lib/oracle/11.2/network/admin/tnsnames.ora</span></span><br></pre></td></tr></table></figure>
+<p>加入一个Oracle数据库tns信息</p>
+<blockquote>
+<blockquote>
+</blockquote>
+<p>PRODB2 =<br>    (DESCRIPTION =<br>            (ADDRESS_LIST =<br>                    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.3.103.1)(PORT = 1521))<br>            )<br>            (CONNECT_DATA =<br>                    (SERVER=DEDICATED)<br>                    (SID = PRODB2)<br>            )<br>    )</p>
+</blockquote>
+<p>同时修改环境变量  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vi ~/.bashrc</span></span><br><span class="line">LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/lib:/usr/lib/oracle/11.2/client/lib</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=/usr/lib/oracle/11.2</span><br><span class="line"><span class="built_in">export</span> TNS_ADMIN=/usr/lib/oracle/11.2/network/admin</span><br></pre></td></tr></table></figure>
+<p>重启一下环境变量，或者用户logout/login一次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#source ~/.bashrc</span></span><br></pre></td></tr></table></figure>
+
+<p>测试一下    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sqlplus myOracleUsername/password@PRODB2</span></span><br><span class="line">SQL*Plus: Release 11.2.0.2.0 Production on Tue Nov 8 11:11:56 2011</span><br><span class="line">Copyright (c) 1982, 2010, Oracle.  All rights reserved.</span><br><span class="line">Connected to:</span><br><span class="line">Oracle Database 10g Enterprise Edition Release 10.2.0.2.0 - 64bit Production</span><br><span class="line">With the Partitioning, Real Application Clusters, OLAP and Data Mining options</span><br><span class="line">SQL&gt; select * from tab;</span><br></pre></td></tr></table></figure>
+<p>成功。</p>
+<p>6.如果其他用户需要使用sqlplus，需要在该用户的~/.bashrc文件中添加上面提到的3行环境变量</p>
+<p>感谢：本文完全参考：<a href="http://cysky.blog.51cto.com/211942/563294" target="_blank" rel="noopener">http://cysky.blog.51cto.com/211942/563294</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/05/24/laravel-%E8%BF%9E%E6%8E%A5-oracle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/05/24/laravel-%E8%BF%9E%E6%8E%A5-oracle/" class="post-title-link" itemprop="url">laravel 连接 oracle</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2017-05-24 11:08:46 / Geändert am: 11:43:25" itemprop="dateCreated datePublished" datetime="2017-05-24T11:08:46+08:00">2017-05-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>下载oracle 11.2.0.1.0 basic, sdk<br><a href="http://www.oracle.com/technetwork/cn/topics/winx64soft-101515-zhs.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/cn/topics/winx64soft-101515-zhs.html</a></p>
+<p>sdk 解压到c:\根目录<br>basic 里的dll 复制到 D:\WTServer\bin\PHP\64bit-PHP-7.1</p>
+<p>修改php.ini 打开扩展:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension = php_pdo_oci.dll -- PDO扩展 </span><br><span class="line">extension = php_oci8_11g.dll  -- oracle函数扩展</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2017/05/22/laravel-5-4-mix-webpack-%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -746,127 +903,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2016/12/01/nginx-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E9%98%B2%E7%9B%97%E9%93%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/01/nginx-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E9%98%B2%E7%9B%97%E9%93%BE/" class="post-title-link" itemprop="url">nginx 静态文件防盗链</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2016-12-01 13:58:48 / Geändert am: 15:22:55" itemprop="dateCreated datePublished" datetime="2016-12-01T13:58:48+08:00">2016-12-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>#nginx 防盗链</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># location ~* \.(gif|jpg|png|swf|flv|ico)$ #指定文件类型</span></span><br><span class="line"><span class="attribute">location</span> /Uploads/ <span class="comment">#指定文件夹</span></span><br><span class="line">&#123; </span><br><span class="line">	<span class="attribute">valid_referers</span> <span class="literal">none</span> <span class="literal">blocked</span> <span class="regexp">*.xxx.com</span>;</span><br><span class="line">	<span class="attribute">if</span> (<span class="variable">$invalid_referer</span>) &#123; </span><br><span class="line">		<span class="attribute">rewrite</span><span class="regexp"> ^/</span> http://www.xxx.com/forbidden.png; </span><br><span class="line">		<span class="attribute">return</span> <span class="number">414</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="attribute">expires</span>      -<span class="number">1</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2016/11/30/laravel-has%E5%92%8C-wherehas%E7%9A%84%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="aksoft">
-      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Clouds of may">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/11/30/laravel-has%E5%92%8C-wherehas%E7%9A%84%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">laravel has和 wherehas的性能问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2016-11-30 09:49:38 / Geändert am: 09:52:18" itemprop="dateCreated datePublished" datetime="2016-11-30T09:49:38+08:00">2016-11-30</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>#laravel orm 查询 奇慢无比。。。这是个坑啊</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$products = Product::whereHas(<span class="string">'colors'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($q)</span> <span class="title">use</span> <span class="params">($id)</span> </span>&#123;</span><br><span class="line">    $q-&gt;where(<span class="string">'photo'</span>, <span class="string">'&lt;&gt;'</span>, <span class="string">''</span>)-&gt;where(<span class="string">'colors.id'</span>, <span class="string">'='</span>, $id);</span><br><span class="line">&#125;)-&gt;paginate(<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
-
-<p>改为SQL:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$products = Product::</span><br><span class="line">    whereRaw(<span class="string">'products.id in (select product_id from color_product where color_product.color_id = ? and color_product.photo &lt;&gt; "" )'</span>, [$id]);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -917,14 +953,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">144</span>
+        <span class="site-state-item-count">150</span>
         <span class="site-state-item-name">schlagwörter</span></a>
       </div>
   </nav>
@@ -963,7 +999,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

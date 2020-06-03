@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Clouds of may" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Kopieren',
+      copy_success: 'Kopiert',
+      copy_failure: 'Kopieren fehlgeschlagen'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="keywords" content="windows,2004,wsl2,profile,settings">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 10 2004 WSL2 Profile Settings">
+<meta property="og:url" content="http:&#x2F;&#x2F;akgitcom.github.io&#x2F;2020&#x2F;06&#x2F;03&#x2F;Windows-10-2004-WSL2-Profile-Settings&#x2F;index.html">
+<meta property="og:site_name" content="Clouds of may">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-06-03T03:50:33.138Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://akgitcom.github.io/2020/06/03/Windows-10-2004-WSL2-Profile-Settings/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Windows 10 2004 WSL2 Profile Settings | Clouds of may</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Clouds of may</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">Clouds of may</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>Commonweal 404</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://akgitcom.github.io/2020/06/03/Windows-10-2004-WSL2-Profile-Settings/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aksoft">
+      <meta itemprop="description" content="我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clouds of may">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Windows 10 2004 WSL2 Profile Settings
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2020-06-03 11:49:09 / Geändert am: 11:50:33" itemprop="dateCreated datePublished" datetime="2020-06-03T11:49:09+08:00">2020-06-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"$schema"</span>: <span class="string">"https://aka.ms/terminal-profiles-schema"</span>,</span><br><span class="line">  <span class="attr">"defaultProfile"</span>: <span class="string">"&#123;07b52e3e-de2c-5db4-bd2d-ba144ed6c273&#125;"</span>,</span><br><span class="line">  <span class="attr">"theme"</span>: <span class="string">"dark"</span>,</span><br><span class="line">  <span class="attr">"profiles"</span>: [&#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"PowerShell"</span>,</span><br><span class="line">      <span class="attr">"source"</span>: <span class="string">"Windows.Terminal.PowershellCore"</span>,</span><br><span class="line">      <span class="attr">"acrylicOpacity"</span>: <span class="number">0.7</span>,</span><br><span class="line">      <span class="attr">"colorScheme"</span>: <span class="string">"WildCherry"</span>,</span><br><span class="line">      <span class="attr">"cursorColor"</span>: <span class="string">"#000000"</span>,</span><br><span class="line">      <span class="attr">"fontFace"</span>: <span class="string">"Jetbrains Mono"</span>,</span><br><span class="line">      <span class="attr">"useAcrylic"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"hidden"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"guid"</span>: <span class="string">"&#123;574e775e-4f2a-5b96-ac1e-a2962a402336&#125;"</span>,</span><br><span class="line">      <span class="attr">"hidden"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"colorScheme"</span>: <span class="string">"WildCherry"</span>,</span><br><span class="line">      <span class="attr">"historySize"</span>: <span class="number">9001</span>,</span><br><span class="line">      <span class="attr">"snapOnInput"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"cursorColor"</span>: <span class="string">"#FFFFFF"</span>,</span><br><span class="line">      <span class="attr">"cursorShape"</span>: <span class="string">"bar"</span>,</span><br><span class="line">      <span class="attr">"commandline"</span>: <span class="string">"powershell.exe"</span>,</span><br><span class="line">      <span class="attr">"fontFace"</span>: <span class="string">"Jetbrains Mono"</span>,</span><br><span class="line">      <span class="attr">"fontSize"</span>: <span class="number">12</span>,</span><br><span class="line">      <span class="attr">"acrylicOpacity"</span>: <span class="number">0.8</span>,</span><br><span class="line">      <span class="attr">"useAcrylic"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"PowerShell"</span>,</span><br><span class="line">      <span class="attr">"source"</span>: <span class="string">"Windows.Terminal.PowershellCore"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"guid"</span>: <span class="string">"&#123;b453ae62-4e3d-5e58-b989-0a998ec441b8&#125;"</span>,</span><br><span class="line">      <span class="attr">"hidden"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Azure Cloud Shell"</span>,</span><br><span class="line">      <span class="attr">"source"</span>: <span class="string">"Windows.Terminal.Azure"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"guid"</span>: <span class="string">"&#123;07b52e3e-de2c-5db4-bd2d-ba144ed6c273&#125;"</span>,</span><br><span class="line">      <span class="attr">"hidden"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Ubuntu-20.04"</span>,</span><br><span class="line">      <span class="comment">// "commandline": "bash",</span></span><br><span class="line">      <span class="attr">"colorScheme"</span>: <span class="string">"PencilDark"</span>,</span><br><span class="line">      <span class="attr">"source"</span>: <span class="string">"Windows.Terminal.Wsl"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"schemes"</span>: [&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"WildCherry"</span>,</span><br><span class="line">    <span class="attr">"black"</span>: <span class="string">"#000507"</span>,</span><br><span class="line">    <span class="attr">"red"</span>: <span class="string">"#d94085"</span>,</span><br><span class="line">    <span class="attr">"green"</span>: <span class="string">"#2ab250"</span>,</span><br><span class="line">    <span class="attr">"yellow"</span>: <span class="string">"#ffd16f"</span>,</span><br><span class="line">    <span class="attr">"blue"</span>: <span class="string">"#883cdc"</span>,</span><br><span class="line">    <span class="attr">"purple"</span>: <span class="string">"#ececec"</span>,</span><br><span class="line">    <span class="attr">"cyan"</span>: <span class="string">"#c1b8b7"</span>,</span><br><span class="line">    <span class="attr">"white"</span>: <span class="string">"#fff8de"</span>,</span><br><span class="line">    <span class="attr">"brightBlack"</span>: <span class="string">"#009cc9"</span>,</span><br><span class="line">    <span class="attr">"brightRed"</span>: <span class="string">"#da6bac"</span>,</span><br><span class="line">    <span class="attr">"brightGreen"</span>: <span class="string">"#f4dca5"</span>,</span><br><span class="line">    <span class="attr">"brightYellow"</span>: <span class="string">"#eac066"</span>,</span><br><span class="line">    <span class="attr">"brightBlue"</span>: <span class="string">"#308cba"</span>,</span><br><span class="line">    <span class="attr">"brightPurple"</span>: <span class="string">"#ae636b"</span>,</span><br><span class="line">    <span class="attr">"brightCyan"</span>: <span class="string">"#ff919d"</span>,</span><br><span class="line">    <span class="attr">"brightWhite"</span>: <span class="string">"#e4838d"</span>,</span><br><span class="line">    <span class="attr">"background"</span>: <span class="string">"#1f1726"</span>,</span><br><span class="line">    <span class="attr">"foreground"</span>: <span class="string">"#dafaff"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Royal"</span>,</span><br><span class="line">    <span class="attr">"black"</span>: <span class="string">"#241f2b"</span>,</span><br><span class="line">    <span class="attr">"red"</span>: <span class="string">"#91284c"</span>,</span><br><span class="line">    <span class="attr">"green"</span>: <span class="string">"#23801c"</span>,</span><br><span class="line">    <span class="attr">"yellow"</span>: <span class="string">"#b49d27"</span>,</span><br><span class="line">    <span class="attr">"blue"</span>: <span class="string">"#6580b0"</span>,</span><br><span class="line">    <span class="attr">"purple"</span>: <span class="string">"#674d96"</span>,</span><br><span class="line">    <span class="attr">"cyan"</span>: <span class="string">"#8aaabe"</span>,</span><br><span class="line">    <span class="attr">"white"</span>: <span class="string">"#524966"</span>,</span><br><span class="line">    <span class="attr">"brightBlack"</span>: <span class="string">"#312d3d"</span>,</span><br><span class="line">    <span class="attr">"brightRed"</span>: <span class="string">"#d5356c"</span>,</span><br><span class="line">    <span class="attr">"brightGreen"</span>: <span class="string">"#2cd946"</span>,</span><br><span class="line">    <span class="attr">"brightYellow"</span>: <span class="string">"#fde83b"</span>,</span><br><span class="line">    <span class="attr">"brightBlue"</span>: <span class="string">"#90baf9"</span>,</span><br><span class="line">    <span class="attr">"brightPurple"</span>: <span class="string">"#a479e3"</span>,</span><br><span class="line">    <span class="attr">"brightCyan"</span>: <span class="string">"#acd4eb"</span>,</span><br><span class="line">    <span class="attr">"brightWhite"</span>: <span class="string">"#9e8cbd"</span>,</span><br><span class="line">    <span class="attr">"background"</span>: <span class="string">"#100815"</span>,</span><br><span class="line">    <span class="attr">"foreground"</span>: <span class="string">"#514968"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"PencilDark"</span>,</span><br><span class="line">    <span class="attr">"black"</span>: <span class="string">"#212121"</span>,</span><br><span class="line">    <span class="attr">"red"</span>: <span class="string">"#c30771"</span>,</span><br><span class="line">    <span class="attr">"green"</span>: <span class="string">"#10a778"</span>,</span><br><span class="line">    <span class="attr">"yellow"</span>: <span class="string">"#a89c14"</span>,</span><br><span class="line">    <span class="attr">"blue"</span>: <span class="string">"#004e6d"</span>,</span><br><span class="line">    <span class="attr">"purple"</span>: <span class="string">"#523c79"</span>,</span><br><span class="line">    <span class="attr">"cyan"</span>: <span class="string">"#20a5ba"</span>,</span><br><span class="line">    <span class="attr">"white"</span>: <span class="string">"#d9d9d9"</span>,</span><br><span class="line">    <span class="attr">"brightBlack"</span>: <span class="string">"#424242"</span>,</span><br><span class="line">    <span class="attr">"brightRed"</span>: <span class="string">"#fb007a"</span>,</span><br><span class="line">    <span class="attr">"brightGreen"</span>: <span class="string">"#5fd7af"</span>,</span><br><span class="line">    <span class="attr">"brightYellow"</span>: <span class="string">"#f3e430"</span>,</span><br><span class="line">    <span class="attr">"brightBlue"</span>: <span class="string">"#20bbfc"</span>,</span><br><span class="line">    <span class="attr">"brightPurple"</span>: <span class="string">"#6855de"</span>,</span><br><span class="line">    <span class="attr">"brightCyan"</span>: <span class="string">"#4fb8cc"</span>,</span><br><span class="line">    <span class="attr">"brightWhite"</span>: <span class="string">"#f1f1f1"</span>,</span><br><span class="line">    <span class="attr">"background"</span>: <span class="string">"#212121"</span>,</span><br><span class="line">    <span class="attr">"foreground"</span>: <span class="string">"#f1f1f1"</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/2004/" rel="tag"># 2004</a>
+              <a href="/tags/wsl2/" rel="tag"># wsl2</a>
+              <a href="/tags/profile/" rel="tag"># profile</a>
+              <a href="/tags/settings/" rel="tag"># settings</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/11/Python-%E8%A7%A3%E6%9E%90-PDF-%E8%BD%AC%E6%8D%A2%E4%B8%BAcsv/" rel="next" title="Python 解析 PDF 转换为csv">
+                  <i class="fa fa-chevron-left"></i> Python 解析 PDF 转换为csv
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="aksoft"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">aksoft</p>
+  <div class="site-description" itemprop="description">我们遇到的人<br>都并非偶然<br>无论他们给予的是快乐还是痛苦<br>都是来度我的<br>深深爱着我<br>把我捧在掌心里的<br>是用爱来度我<br>伤害我<br>浪掷我的深情的<br>是用苦来度我<br>使我学会自爱<br>觉悟无常<br>当青春走到尽头<br>我会想念那个微笑的<br>年轻的<br>无忧亦无惧的自己</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">154</span>
+        <span class="site-state-item-name">schlagwörter</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="chat motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/akgitcom" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;akgitcom" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aksoft</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+    </div>
+</body>
+</html>
